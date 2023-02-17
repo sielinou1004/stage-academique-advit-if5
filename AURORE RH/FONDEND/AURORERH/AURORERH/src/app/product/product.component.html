@@ -1,0 +1,11 @@
+
+<div class="card">
+  <h2> {{title}}</h2>
+  <p>Mis en ligne le {{createDate | date}}</p>
+  <img [src]="imageUrl" [alt]="title" >
+  <p> {{description}}</p>
+  <p>{{price}}$ </p>
+  <p>
+    <button (click)="onSnap()">{{buttonText}}</button>
+    {{snaps}}</p>
+</div>

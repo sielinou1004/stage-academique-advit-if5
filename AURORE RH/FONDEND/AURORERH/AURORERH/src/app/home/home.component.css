@@ -1,0 +1,26 @@
+.landing-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .landing-links {
+    width: 100%;
+    text-align: center;
+  }
+
+  img{
+    height: 20rem;
+  }
+
+  button {
+    transition-duration: 0.4s;
+    border-radius: 15px;
+    margin-top: 2rem;
+  }
+
+  button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }

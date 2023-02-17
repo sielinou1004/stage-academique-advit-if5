@@ -1,0 +1,28 @@
+package com.advance.aurore_rh.dto.request;
+
+
+import com.advance.aurore_rh.model.User;
+import com.advance.aurore_rh.utils.GeneralUtil;
+import lombok.Builder;
+import lombok.Data;
+
+
+
+@Data
+@Builder
+public class SignInRequestDTO {
+
+
+    private String nom;
+    private String password;
+    private String email;
+
+    public static User buildFromDto(SignInRequestDTO dto){
+        return User.UserBuilder.anUser()
+
+                .nom(dto.getNom())
+                .email(dto.getEmail())
+                .password(GeneralUtil.genererPasswordUser(dto.getPassword()))
+                .build();
+    }
+}
