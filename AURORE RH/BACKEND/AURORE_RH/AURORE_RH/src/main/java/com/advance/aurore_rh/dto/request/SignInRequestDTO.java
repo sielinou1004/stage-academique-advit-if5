@@ -2,7 +2,7 @@ package com.advance.aurore_rh.dto.request;
 
 
 import com.advance.aurore_rh.model.User;
-import com.advance.aurore_rh.utils.GeneralUtil;
+import com.advance.aurore_rh.utils.GeneralUtils;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,7 +22,7 @@ public class SignInRequestDTO {
 
                 .nom(dto.getNom())
                 .email(dto.getEmail())
-                .password(GeneralUtil.genererPasswordUser(dto.getPassword()))
+                .password(GeneralUtils.genererPasswordUser(dto.getPassword()))
                 .build();
     }
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "User")
+@Table(name = "AUTH_USER")
 @RequiredArgsConstructor
 //@EqualsAndHashCode(callSuper = false)
 
@@ -33,8 +33,7 @@ public class User extends AuditEntity {
     private String email;
 
 
-    @OneToOne
-    private Employer employer;
+
 
     public static final class UserBuilder {
         private long create_id;

@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Slf4j
-public class GeneralUtil {
+public class GeneralUtils {
 
     public static String genererPasswordUser(String password) {
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();

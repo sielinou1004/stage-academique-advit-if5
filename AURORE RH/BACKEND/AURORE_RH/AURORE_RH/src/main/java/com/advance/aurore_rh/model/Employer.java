@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Table(name = "Employer")
+@Table(name = "APP_EMPLOYER")
 @Data
 @RequiredArgsConstructor
 
@@ -20,6 +20,7 @@ public class Employer extends AuditEntity {
     private long id;
 
     @Column(length = 50)
+
     private String nom;
 
 
@@ -72,8 +73,8 @@ public class Employer extends AuditEntity {
     @Column(length = 50)
     private String poste;
 
-    @OneToOne(mappedBy = "employer")
-    @JoinColumn(name = "create_id")
+    @OneToOne
+    @JoinColumn(name = "user_id" )
     private User user;
 
 

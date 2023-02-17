@@ -7,7 +7,6 @@ import com.advance.aurore_rh.dto.response.AuthenticateResponseDTO;
 import com.advance.aurore_rh.dto.response.SingInResponseDTO;
 import com.advance.aurore_rh.service.auth.ApplicationUserService;
 import com.advance.aurore_rh.service.auth.AuthService;
-import com.advance.aurore_rh.utils.GeneralUtil;
 import com.advance.aurore_rh.utils.JwtUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

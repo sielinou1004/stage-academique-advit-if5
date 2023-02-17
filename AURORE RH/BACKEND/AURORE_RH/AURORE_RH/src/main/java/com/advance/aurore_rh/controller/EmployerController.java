@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/employer")
 @CrossOrigin("*")
 
-public class EmployerController {
+public class    EmployerController {
 
     @Autowired
     private final EmployerServiceinter employerServiceinter;
@@ -42,7 +42,7 @@ public class EmployerController {
     }
 
     @PutMapping("/update/{id}/")
-    @ApiOperation(("Api suppression d'un employer"))
+    @ApiOperation("Api modification d'un employer")
 
     public ResponseEntity<ApiResponse<EmployerResponseDTO>>  updateEmpl(@RequestBody EmployerRequestDTO employerRequestDTO){
         return ResponseEntity.ok(ApiResponse.<EmployerResponseDTO>builder()
