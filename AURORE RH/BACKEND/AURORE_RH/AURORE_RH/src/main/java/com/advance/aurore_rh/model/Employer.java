@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "APP_EMPLOYER")
@@ -20,7 +21,6 @@ public class Employer extends AuditEntity {
     private long id;
 
     @Column(length = 50)
-
     private String nom;
 
 
@@ -77,6 +77,45 @@ public class Employer extends AuditEntity {
     @JoinColumn(name = "user_id" )
     private User user;
 
+    @OneToOne
+    @JoinColumn(name = "contrat_id" )
+    private Contrat contrat;
+
+    @ManyToMany
+    @JoinTable(
+            name = "LNK_Employer_Formation",
+            joinColumns = @JoinColumn(name = "employer_id"),
+            inverseJoinColumns = @JoinColumn(name = "formation_id")
+
+    )
+    private List<Formation> formations;
+
+    @ManyToMany
+    @JoinTable(
+            name = "LNCK_EMPLOYER_NOTEPROFESSIONEL",
+            joinColumns = @JoinColumn(name = "employer_id"),
+            inverseJoinColumns = @JoinColumn(name = "noteprofessionel_id")
+    )
+    private List<NoteProfessionel> noteProfessionels;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "LNCK_EMPLOYER_CONGER",
+            joinColumns = @JoinColumn(name = "employer_id"),
+            inverseJoinColumns = @JoinColumn(name = "conger_id")
+    )
+    private List<Conger> congers;
+
+    @ManyToMany
+    @JoinTable(
+            name = "LNK_EMPLOYER_SANCTION",
+            joinColumns = @JoinColumn(name = "employer_id"),
+            inverseJoinColumns = @JoinColumn(name = "sanction_id")
+    )
+    private List<Sanction> sanctions;
+
+
 
     public static final class EmployerBuilder {
         private long id;
@@ -104,6 +143,7 @@ public class Employer extends AuditEntity {
         private LocalDateTime date_modif;
         private String util_creation;
         private String util_modif;
+        private Character forwarded;
 
         private EmployerBuilder() {
         }
@@ -237,6 +277,11 @@ public class Employer extends AuditEntity {
             return this;
         }
 
+        public EmployerBuilder forwarded(Character forwarded) {
+            this.forwarded = forwarded;
+            return this;
+        }
+
         public Employer build() {
             Employer employer = new Employer();
             employer.setId(id);
@@ -264,6 +309,7 @@ public class Employer extends AuditEntity {
             employer.setDate_modif(date_modif);
             employer.setUtil_creation(util_creation);
             employer.setUtil_modif(util_modif);
+            employer.setForwarded(forwarded);
             return employer;
         }
     }

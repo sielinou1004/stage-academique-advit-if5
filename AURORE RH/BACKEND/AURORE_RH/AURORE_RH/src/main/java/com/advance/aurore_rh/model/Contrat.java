@@ -51,8 +51,16 @@ public class Contrat extends AuditEntity {
     @Column(length = 50)
     private String etat_civil;
 
+    @OneToOne
+    @JoinColumn(name = "employer_id")
+    private Employer employer;
+
+    @ManyToOne
+    @JoinColumn(name  = "typecontrat_id")
+    private TypeContrat typeContrat;
+
     public static final class ContratBuilder {
-        private long id;
+        private long id_contrat;
         private String nom;
         private String prenom;
         private String lieu_recrutememnt;
@@ -65,11 +73,13 @@ public class Contrat extends AuditEntity {
         private String lieu_travail;
         private String Salaire_brut;
         private String etat_civil;
+        private Employer employer;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
         private String util_creation;
         private String util_modif;
+        private Character forwarded;
 
         private ContratBuilder() {
         }
@@ -79,7 +89,7 @@ public class Contrat extends AuditEntity {
         }
 
         public ContratBuilder id_contrat(long id_contrat) {
-            this.id = id;
+            this.id_contrat = id_contrat;
             return this;
         }
 
@@ -143,6 +153,11 @@ public class Contrat extends AuditEntity {
             return this;
         }
 
+        public ContratBuilder employer(Employer employer) {
+            this.employer = employer;
+            return this;
+        }
+
         public ContratBuilder version(Long version) {
             this.version = version;
             return this;
@@ -168,9 +183,14 @@ public class Contrat extends AuditEntity {
             return this;
         }
 
+        public ContratBuilder forwarded(Character forwarded) {
+            this.forwarded = forwarded;
+            return this;
+        }
+
         public Contrat build() {
             Contrat contrat = new Contrat();
-            contrat.setId_contrat(id);
+            contrat.setId_contrat(id_contrat);
             contrat.setNom(nom);
             contrat.setPrenom(prenom);
             contrat.setLieu_recrutememnt(lieu_recrutememnt);
@@ -183,11 +203,13 @@ public class Contrat extends AuditEntity {
             contrat.setLieu_travail(lieu_travail);
             contrat.setSalaire_brut(Salaire_brut);
             contrat.setEtat_civil(etat_civil);
+            contrat.setEmployer(employer);
             contrat.setVersion(version);
             contrat.setDate_creation(date_creation);
             contrat.setDate_modif(date_modif);
             contrat.setUtil_creation(util_creation);
             contrat.setUtil_modif(util_modif);
+            contrat.setForwarded(forwarded);
             return contrat;
         }
     }
