@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                       "/configuration/ui",
                       "/webjars/**" ,
                       "/employer/**",
+                      "/contrat/**",
                       "/auth/**")
               .permitAll()
               .anyRequest()

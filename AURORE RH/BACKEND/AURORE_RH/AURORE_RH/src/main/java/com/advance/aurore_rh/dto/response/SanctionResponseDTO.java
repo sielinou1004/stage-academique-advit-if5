@@ -1,5 +1,6 @@
 package com.advance.aurore_rh.dto.response;
 
+import com.advance.aurore_rh.model.Employer;
 import com.advance.aurore_rh.model.Sanction;
 import lombok.Builder;
 import lombok.Data;
@@ -20,13 +21,17 @@ public class SanctionResponseDTO {
     public Date debut_sanction;
 
     public Date fin_sanction;
+    private EmployerResponseDTO employerResponseDTO;
 
     public  static SanctionResponseDTO buildFromEntity(Sanction entity){
         return SanctionResponseDTO.builder()
                 .fin_sanction(entity.getFin_sanction())
                 .debut_sanction(entity.getDebut_sanction())
                 .type_sanction(entity.getType_sanction())
+                .employerResponseDTO(EmployerResponseDTO.buildFromEntity((Employer) entity.getEmployer()))
                 .build();
+
+
 
     }
 

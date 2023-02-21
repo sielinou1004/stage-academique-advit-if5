@@ -1,7 +1,9 @@
 package com.advance.aurore_rh.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -13,7 +15,8 @@ import java.util.List;
 @Entity
 @Table(name = "APP_EMPLOYER")
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Employer extends AuditEntity {
     @Id
@@ -116,7 +119,6 @@ public class Employer extends AuditEntity {
     private List<Sanction> sanctions;
 
 
-
     public static final class EmployerBuilder {
         private long id;
         private String nom;
@@ -138,6 +140,11 @@ public class Employer extends AuditEntity {
         private String profession;
         private String poste;
         private User user;
+        private Contrat contrat;
+        private List<Formation> formations;
+        private List<NoteProfessionel> noteProfessionels;
+        private List<Conger> congers;
+        private List<Sanction> sanctions;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
@@ -252,6 +259,31 @@ public class Employer extends AuditEntity {
             return this;
         }
 
+        public EmployerBuilder contrat(Contrat contrat) {
+            this.contrat = contrat;
+            return this;
+        }
+
+        public EmployerBuilder formations(List<Formation> formations) {
+            this.formations = formations;
+            return this;
+        }
+
+        public EmployerBuilder noteProfessionels(List<NoteProfessionel> noteProfessionels) {
+            this.noteProfessionels = noteProfessionels;
+            return this;
+        }
+
+        public EmployerBuilder congers(List<Conger> congers) {
+            this.congers = congers;
+            return this;
+        }
+
+        public EmployerBuilder sanctions(List<Sanction> sanctions) {
+            this.sanctions = sanctions;
+            return this;
+        }
+
         public EmployerBuilder version(Long version) {
             this.version = version;
             return this;
@@ -304,6 +336,11 @@ public class Employer extends AuditEntity {
             employer.setProfession(profession);
             employer.setPoste(poste);
             employer.setUser(user);
+            employer.setContrat(contrat);
+            employer.setFormations(formations);
+            employer.setNoteProfessionels(noteProfessionels);
+            employer.setCongers(congers);
+            employer.setSanctions(sanctions);
             employer.setVersion(version);
             employer.setDate_creation(date_creation);
             employer.setDate_modif(date_modif);

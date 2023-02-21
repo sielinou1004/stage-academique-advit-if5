@@ -1,7 +1,9 @@
 package com.advance.aurore_rh.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -11,7 +13,8 @@ import java.util.Date;
 @Entity
 @Table(name = "APP_CONTRAT")
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Contrat extends AuditEntity {
     @Id
@@ -74,6 +77,7 @@ public class Contrat extends AuditEntity {
         private String Salaire_brut;
         private String etat_civil;
         private Employer employer;
+        private TypeContrat typeContrat;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
@@ -158,6 +162,11 @@ public class Contrat extends AuditEntity {
             return this;
         }
 
+        public ContratBuilder typeContrat(TypeContrat typeContrat) {
+            this.typeContrat = typeContrat;
+            return this;
+        }
+
         public ContratBuilder version(Long version) {
             this.version = version;
             return this;
@@ -204,6 +213,7 @@ public class Contrat extends AuditEntity {
             contrat.setSalaire_brut(Salaire_brut);
             contrat.setEtat_civil(etat_civil);
             contrat.setEmployer(employer);
+            contrat.setTypeContrat(typeContrat);
             contrat.setVersion(version);
             contrat.setDate_creation(date_creation);
             contrat.setDate_modif(date_modif);

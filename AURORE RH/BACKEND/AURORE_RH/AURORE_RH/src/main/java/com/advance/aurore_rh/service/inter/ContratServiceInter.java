@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ContratServiceInter {
 
-    ContratResponseDTO createcontrat(ContratRequestDTO contratRequestDTO);
+    ContratResponseDTO createcontrat(ContratRequestDTO contratRequestDTO );
 
     List<ContratResponseDTO> getAllcontr();
 

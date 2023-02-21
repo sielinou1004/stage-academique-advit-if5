@@ -1,6 +1,6 @@
 package com.advance.aurore_rh.model;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -17,8 +17,7 @@ import java.util.TimeZone;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-
-public abstract class  AuditEntity {
+public  abstract class AuditEntity {
 
     @Version
     protected Long version = 0L;
@@ -33,6 +32,7 @@ public abstract class  AuditEntity {
     protected String util_creation = "SYSTEM";
 
     @LastModifiedDate
+    @JsonIgnore
     protected String util_modif = "SYSTEM";
     protected Character forwarded = 'N';
 
@@ -40,6 +40,5 @@ public abstract class  AuditEntity {
     void postConstruct(){
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
-
 
 }

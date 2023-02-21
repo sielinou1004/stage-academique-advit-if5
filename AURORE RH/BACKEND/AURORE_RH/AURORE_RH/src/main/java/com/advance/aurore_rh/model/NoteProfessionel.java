@@ -1,7 +1,9 @@
 package com.advance.aurore_rh.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -12,7 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "APP_NOTEPROFESSIONEL")
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class NoteProfessionel extends AuditEntity {
 
@@ -20,8 +23,10 @@ public class NoteProfessionel extends AuditEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 50)
     private String theme;
 
+    @Column(length = 100)
     private String description;
 
     private Date date_publication;
@@ -34,6 +39,7 @@ public class NoteProfessionel extends AuditEntity {
         private String theme;
         private String description;
         private Date date_publication;
+        private List<Employer> employers;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
@@ -65,6 +71,11 @@ public class NoteProfessionel extends AuditEntity {
 
         public NoteProfessionelBuilder date_publication(Date date_publication) {
             this.date_publication = date_publication;
+            return this;
+        }
+
+        public NoteProfessionelBuilder employers(List<Employer> employers) {
+            this.employers = employers;
             return this;
         }
 
@@ -104,6 +115,7 @@ public class NoteProfessionel extends AuditEntity {
             noteProfessionel.setTheme(theme);
             noteProfessionel.setDescription(description);
             noteProfessionel.setDate_publication(date_publication);
+            noteProfessionel.setEmployers(employers);
             noteProfessionel.setVersion(version);
             noteProfessionel.setDate_creation(date_creation);
             noteProfessionel.setDate_modif(date_modif);

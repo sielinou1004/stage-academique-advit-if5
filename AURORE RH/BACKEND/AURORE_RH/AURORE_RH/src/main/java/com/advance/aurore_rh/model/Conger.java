@@ -3,6 +3,7 @@ package com.advance.aurore_rh.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -13,7 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "APP_CONGER")
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Conger extends AuditEntity {
 

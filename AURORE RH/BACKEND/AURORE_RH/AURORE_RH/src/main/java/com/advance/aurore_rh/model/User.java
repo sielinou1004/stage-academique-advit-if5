@@ -1,9 +1,7 @@
 package com.advance.aurore_rh.model;
 
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,7 +10,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "AUTH_USER")
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 //@EqualsAndHashCode(callSuper = false)
 
 

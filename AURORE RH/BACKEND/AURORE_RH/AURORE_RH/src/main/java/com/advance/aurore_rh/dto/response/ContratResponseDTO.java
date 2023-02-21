@@ -2,6 +2,7 @@ package com.advance.aurore_rh.dto.response;
 
 
 import com.advance.aurore_rh.model.Contrat;
+import com.advance.aurore_rh.model.Employer;
 import lombok.Builder;
 import lombok.Data;
 
@@ -41,6 +42,8 @@ public class ContratResponseDTO {
 
     private String etat_civil;
 
+    private EmployerResponseDTO employerResponseDTO;
+
     public static ContratResponseDTO buildFromEntity(Contrat entity){
         return ContratResponseDTO.builder()
                 .id(entity.getId_contrat())
@@ -56,6 +59,8 @@ public class ContratResponseDTO {
                 .Salaire_brut(entity.getSalaire_brut())
                 .debut_periode_essaie(entity.getDebut_periode_essaie())
                 .fin_periode_essaie(entity.getDate_embauche())
+                .employerResponseDTO(EmployerResponseDTO.buildFromEntity(entity.getEmployer()))
+
 
                 .build();
     }

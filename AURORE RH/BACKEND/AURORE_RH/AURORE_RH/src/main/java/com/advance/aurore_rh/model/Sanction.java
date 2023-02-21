@@ -1,7 +1,9 @@
 package com.advance.aurore_rh.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.LifecycleState;
 
@@ -13,7 +15,8 @@ import java.util.List;
 @Entity
 @Table(name = "APP_SANCTION")
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Sanction extends AuditEntity{
 
     @Id
@@ -33,13 +36,15 @@ public class Sanction extends AuditEntity{
     private TypeSanction typeSanction;
 
     @ManyToMany(mappedBy = "sanctions")
-    private List<Employer> employers;
+    private List<Employer> employer;
 
     public static final class SanctionBuilder {
         private Long id;
         private String type_sanction;
         private Date debut_sanction;
         private Date fin_sanction;
+        private TypeSanction typeSanction;
+        private List<Employer> employer;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
@@ -71,6 +76,16 @@ public class Sanction extends AuditEntity{
 
         public SanctionBuilder fin_sanction(Date fin_sanction) {
             this.fin_sanction = fin_sanction;
+            return this;
+        }
+
+        public SanctionBuilder typeSanction(TypeSanction typeSanction) {
+            this.typeSanction = typeSanction;
+            return this;
+        }
+
+        public SanctionBuilder employer(List<Employer> employer) {
+            this.employer = employer;
             return this;
         }
 
@@ -110,6 +125,8 @@ public class Sanction extends AuditEntity{
             sanction.setType_sanction(type_sanction);
             sanction.setDebut_sanction(debut_sanction);
             sanction.setFin_sanction(fin_sanction);
+            sanction.setTypeSanction(typeSanction);
+            sanction.setEmployer(employer);
             sanction.setVersion(version);
             sanction.setDate_creation(date_creation);
             sanction.setDate_modif(date_modif);
