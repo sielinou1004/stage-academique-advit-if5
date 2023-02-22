@@ -42,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                       "/webjars/**" ,
                       "/employer/**",
                       "/contrat/**",
+                      "/sanction/**",
                       "/auth/**")
               .permitAll()
               .anyRequest()

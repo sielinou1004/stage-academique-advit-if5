@@ -21,7 +21,10 @@ public class Sanction extends AuditEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
+
+    @Column(length = 50)
+    private String nom;
 
     @Column(length = 50)
     private String type_sanction;
@@ -40,6 +43,7 @@ public class Sanction extends AuditEntity{
 
     public static final class SanctionBuilder {
         private Long id;
+        private String nom;
         private String type_sanction;
         private Date debut_sanction;
         private Date fin_sanction;
@@ -61,6 +65,11 @@ public class Sanction extends AuditEntity{
 
         public SanctionBuilder id(Long id) {
             this.id = id;
+            return this;
+        }
+
+        public SanctionBuilder nom(String nom) {
+            this.nom = nom;
             return this;
         }
 
@@ -122,6 +131,7 @@ public class Sanction extends AuditEntity{
         public Sanction build() {
             Sanction sanction = new Sanction();
             sanction.setId(id);
+            sanction.setNom(nom);
             sanction.setType_sanction(type_sanction);
             sanction.setDebut_sanction(debut_sanction);
             sanction.setFin_sanction(fin_sanction);

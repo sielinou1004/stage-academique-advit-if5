@@ -1,6 +1,7 @@
 package com.advance.aurore_rh.model;
 
 
+import com.advance.aurore_rh.model.lnk.EmployerFormation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -84,14 +85,17 @@ public class Employer extends AuditEntity {
     @JoinColumn(name = "contrat_id" )
     private Contrat contrat;
 
-    @ManyToMany
-    @JoinTable(
-            name = "LNK_Employer_Formation",
-            joinColumns = @JoinColumn(name = "employer_id"),
-            inverseJoinColumns = @JoinColumn(name = "formation_id")
+//    @ManyToMany
+//    @JoinTable(
+//            name = "LNK_Employer_Formation",
+//            joinColumns = @JoinColumn(name = "employer_id"),
+//            inverseJoinColumns = @JoinColumn(name = "formation_id")
+//    )
+//    private List<Formation> formations;
 
-    )
-    private List<Formation> formations;
+    @OneToMany(mappedBy = "employer")
+    private List<EmployerFormation> employerFormations;
+
 
     @ManyToMany
     @JoinTable(
@@ -141,7 +145,7 @@ public class Employer extends AuditEntity {
         private String poste;
         private User user;
         private Contrat contrat;
-        private List<Formation> formations;
+        private List<EmployerFormation> employerFormations;
         private List<NoteProfessionel> noteProfessionels;
         private List<Conger> congers;
         private List<Sanction> sanctions;
@@ -264,8 +268,8 @@ public class Employer extends AuditEntity {
             return this;
         }
 
-        public EmployerBuilder formations(List<Formation> formations) {
-            this.formations = formations;
+        public EmployerBuilder employerFormations(List<EmployerFormation> employerFormations) {
+            this.employerFormations = employerFormations;
             return this;
         }
 
@@ -337,7 +341,7 @@ public class Employer extends AuditEntity {
             employer.setPoste(poste);
             employer.setUser(user);
             employer.setContrat(contrat);
-            employer.setFormations(formations);
+            employer.setEmployerFormations(employerFormations);
             employer.setNoteProfessionels(noteProfessionels);
             employer.setCongers(congers);
             employer.setSanctions(sanctions);

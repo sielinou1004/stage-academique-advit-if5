@@ -24,8 +24,6 @@ public class FormationResponseDTO {
         return FormationResponseDTO.builder()
                 .id(entity.getId())
                 .theme_form(entity.getTheme_form())
-                .debut_form(entity.getDebut_form())
-                .fin_form(entity.getFin_form())
                 .build();
 
     }

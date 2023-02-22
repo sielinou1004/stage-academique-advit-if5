@@ -5,9 +5,9 @@ import com.advance.aurore_rh.model.Sanction;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Data
@@ -36,11 +36,16 @@ public class SanctionResponseDTO {
     }
 
 
-//    public static List<EmployerResponseDTO> builFromEntityList(List <Employer> employerList){
-//
-//        return employerList.stream().map(EmployerResponseDTO::buildFromEntity).collect(Collectors.toList());
-//
+    public static  List<SanctionResponseDTO> buildFromEntity(List<Sanction> sanctionList){
+        return sanctionList.stream().map(SanctionResponseDTO::buildFromEntity).collect(Collectors.toList());
+    }
+
+
+//    public static <T> SanctionResponseDTO buildFromEntity(Optional<Sanction> byId) {
+//        return SanctionResponseDTO.builder()
+//                .fin_sanction(byId.get().getFin_sanction())
+//                .debut_sanction(byId.get().getDebut_sanction())
+//                .type_sanction(byId.get().getType_sanction())
+//                .build();
 //    }
-
-
 }

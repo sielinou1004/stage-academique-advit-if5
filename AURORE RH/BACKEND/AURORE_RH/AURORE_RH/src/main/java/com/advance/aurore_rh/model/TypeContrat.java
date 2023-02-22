@@ -21,7 +21,11 @@ public class TypeContrat extends AuditEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String type_contrat;
+    @Column(length = 50)
+    private String typecontrat;
+
+    @Column(length = 50)
+    private String description;
 
     @OneToMany(mappedBy = "typeContrat")
     private List<Contrat> contrat;
@@ -29,6 +33,7 @@ public class TypeContrat extends AuditEntity {
     public static final class TypeContratBuilder {
         private Long id;
         private String type_contrat;
+        private String description;
         private List<Contrat> contrat;
         private Long version;
         private LocalDateTime date_creation;
@@ -51,6 +56,11 @@ public class TypeContrat extends AuditEntity {
 
         public TypeContratBuilder type_contrat(String type_contrat) {
             this.type_contrat = type_contrat;
+            return this;
+        }
+
+        public TypeContratBuilder description(String description) {
+            this.description = description;
             return this;
         }
 
@@ -92,7 +102,8 @@ public class TypeContrat extends AuditEntity {
         public TypeContrat build() {
             TypeContrat typeContrat = new TypeContrat();
             typeContrat.setId(id);
-            typeContrat.setType_contrat(type_contrat);
+            typeContrat.setTypecontrat(type_contrat);
+            typeContrat.setDescription(description);
             typeContrat.setContrat(contrat);
             typeContrat.setVersion(version);
             typeContrat.setDate_creation(date_creation);

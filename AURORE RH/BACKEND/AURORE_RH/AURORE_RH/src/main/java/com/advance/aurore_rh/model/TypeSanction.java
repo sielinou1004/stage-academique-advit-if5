@@ -19,6 +19,7 @@ public class TypeSanction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 50)
     private String type_sanction;
 
 

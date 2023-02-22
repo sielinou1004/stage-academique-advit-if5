@@ -1,5 +1,6 @@
 package com.advance.aurore_rh.model;
 
+import com.advance.aurore_rh.model.lnk.EmployerFormation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,23 +25,18 @@ public class Formation extends AuditEntity {
     @Column(length = 50)
     private String theme_form;
 
-    private Date debut_form;
 
-    private Date fin_form;
 
-    @Column(length = 100)
-    private String description;
+//    @ManyToMany(mappedBy = "formations")
+//    private List<Employer> employers;
 
-    @ManyToMany(mappedBy = "formations")
-    private List<Employer> employers;
+    @OneToMany(mappedBy = "formation")
+    private List<EmployerFormation> employerFormations;
 
     public static final class FormationBuilder {
         private Long id;
         private String theme_form;
-        private Date debut_form;
-        private Date fin_form;
-        private String description;
-        private List<Employer> employers;
+        private List<EmployerFormation> employerFormations;
         private Long version;
         private LocalDateTime date_creation;
         private LocalDateTime date_modif;
@@ -65,23 +61,8 @@ public class Formation extends AuditEntity {
             return this;
         }
 
-        public FormationBuilder debut_form(Date debut_form) {
-            this.debut_form = debut_form;
-            return this;
-        }
-
-        public FormationBuilder fin_form(Date fin_form) {
-            this.fin_form = fin_form;
-            return this;
-        }
-
-        public FormationBuilder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-        public FormationBuilder employers(List<Employer> employers) {
-            this.employers = employers;
+        public FormationBuilder employerFormations(List<EmployerFormation> employerFormations) {
+            this.employerFormations = employerFormations;
             return this;
         }
 
@@ -119,10 +100,7 @@ public class Formation extends AuditEntity {
             Formation formation = new Formation();
             formation.setId(id);
             formation.setTheme_form(theme_form);
-            formation.setDebut_form(debut_form);
-            formation.setFin_form(fin_form);
-            formation.setDescription(description);
-            formation.setEmployers(employers);
+            formation.setEmployerFormations(employerFormations);
             formation.setVersion(version);
             formation.setDate_creation(date_creation);
             formation.setDate_modif(date_modif);

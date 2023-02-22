@@ -26,8 +26,6 @@ public class FormationRequestDTO {
     public static Formation buildFromDto(FormationRequestDTO dto){
         return Formation.FormationBuilder.aFormation()
                 .theme_form(dto.getTheme_form())
-                .debut_form(dto.getDebut_form())
-                .fin_form(dto.getFin_form())
      //           .employers(dto.getEmployers())
                 .build();
     }
