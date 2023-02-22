@@ -22,6 +22,8 @@ public class TypeConger extends AuditEntity {
     @Column(length = 50)
     private String type_conger;
 
+    @Column(length = 50)
+    private String description;
 
     @OneToMany(mappedBy = "typeConger")
     private List<Conger> conger;
@@ -29,6 +31,7 @@ public class TypeConger extends AuditEntity {
     public static final class TypeCongerBuilder {
         private Long id;
         private String type_conger;
+        private String description;
         private List<Conger> conger;
         private Long version;
         private LocalDateTime date_creation;
@@ -51,6 +54,11 @@ public class TypeConger extends AuditEntity {
 
         public TypeCongerBuilder type_conger(String type_conger) {
             this.type_conger = type_conger;
+            return this;
+        }
+
+        public TypeCongerBuilder description(String description) {
+            this.description = description;
             return this;
         }
 
@@ -93,6 +101,7 @@ public class TypeConger extends AuditEntity {
             TypeConger typeConger = new TypeConger();
             typeConger.setId(id);
             typeConger.setType_conger(type_conger);
+            typeConger.setDescription(description);
             typeConger.setConger(conger);
             typeConger.setVersion(version);
             typeConger.setDate_creation(date_creation);

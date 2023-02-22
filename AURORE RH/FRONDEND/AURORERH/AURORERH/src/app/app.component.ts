@@ -7,7 +7,7 @@ import { product } from './models/product.Model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'demos';
+  title = 'AURORERH';
   myproduct!: product;
 
   ngOnInit(){
