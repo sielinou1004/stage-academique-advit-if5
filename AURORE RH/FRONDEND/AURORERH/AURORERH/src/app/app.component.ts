@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { product } from './models/product.Model';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { product } from './models/product.Model';
 })
 export class AppComponent implements OnInit {
   title = 'AURORERH';
-  myproduct!: product;
+ 
 
   ngOnInit(){
 

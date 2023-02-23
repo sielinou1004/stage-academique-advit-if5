@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Service
-@AllArgsConstructor
+
 public class EmployerServiceEmpl implements EmployerServiceinter {
 
 

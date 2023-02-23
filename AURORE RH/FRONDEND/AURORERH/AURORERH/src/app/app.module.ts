@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SharedModule } from './Shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     MainComponent,
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

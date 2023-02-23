@@ -17,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     private ApplicationUserService applicationUserService;
 
@@ -32,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.csrf().disable()
+      http.csrf().and().cors().disable()
               .authorizeHttpRequests()
               .antMatchers(
                       "/swagger-ui.html",

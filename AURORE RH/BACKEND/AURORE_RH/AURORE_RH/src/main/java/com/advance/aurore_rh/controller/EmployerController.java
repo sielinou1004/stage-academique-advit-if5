@@ -14,11 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employer")
-@CrossOrigin("*")
-
+@CrossOrigin(origins = {"*"})
 public class    EmployerController {
 
-    @Autowired
+
     private final EmployerServiceinter employerServiceinter;
 
 
@@ -27,19 +26,6 @@ public class    EmployerController {
 
     }
 
-
-    @DeleteMapping("/delete/{id}")
-    @ApiOperation("Suppression d'un employer")
-
-    public ResponseEntity<ApiResponse<String>> deleteById(@PathVariable Long id){
-        return ResponseEntity.ok(ApiResponse.<String>builder()
-                .sucsess(true)
-                .message("operation effectuer")
-                .data(employerServiceinter.deleteById(id))
-                .build());
-//    public String delete(@PathVariable Long id) {
-//        return employerServiceinter.delete(id);
-    }
 
     @PutMapping("/update/{id}/")
     @ApiOperation("Api modification d'un employer")
@@ -92,5 +78,20 @@ public class    EmployerController {
 
 //    public EmployerResponseDTO getEmplById(@PathVariable Long id ){
 //        return employerServiceinter.getEmplById(id);
+    }
+
+
+
+    @DeleteMapping("/delete/{id}")
+    @ApiOperation("Suppression d'un employer")
+
+    public ResponseEntity<ApiResponse<String>> deleteById(@PathVariable Long id){
+        return ResponseEntity.ok(ApiResponse.<String>builder()
+                .sucsess(true)
+                .message("operation effectuer")
+                .data(employerServiceinter.deleteById(id))
+                .build());
+//    public String delete(@PathVariable Long id) {
+//        return employerServiceinter.delete(id);
     }
 }
