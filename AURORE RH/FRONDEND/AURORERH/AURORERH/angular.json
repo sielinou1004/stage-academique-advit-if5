@@ -29,10 +29,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/main.87c0748b313a1dda75f5.css"
-
-
-
+              "src/assets/main.87c0748b313a1dda75f5.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/scripts/main.87c0748b313a1dda75f5.js"

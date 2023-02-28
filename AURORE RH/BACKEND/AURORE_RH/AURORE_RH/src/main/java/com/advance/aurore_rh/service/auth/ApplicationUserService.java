@@ -21,11 +21,12 @@ public class ApplicationUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.advance.aurore_rh.model.User user = userRepository.findByEmail(username).orElseThrow(
+        com.advance.aurore_rh.model.User user = userRepository
+                .findByNom(username).orElseThrow(
                 ()->new RuntimeException("utilisateur non trouvé")
         );
 
-        return  new User(user.getEmail(), user.getPassword(), Collections.emptyList());
+        return  new User(user.getNom(), user.getPassword(), Collections.emptyList());
     }
 
 }

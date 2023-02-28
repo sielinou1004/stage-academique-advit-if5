@@ -10,6 +10,4 @@ public class AuthenticateRequestDTO {
 
     private String login;
     private String password;
-
-
 }

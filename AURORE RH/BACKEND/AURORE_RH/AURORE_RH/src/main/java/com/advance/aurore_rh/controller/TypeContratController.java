@@ -48,7 +48,7 @@ public class TypeContratController {
 
     public ResponseEntity<ApiResponse<TypeContratResponseDTO>> createTypCon(@RequestBody TypeContratRequestDTO typeContratRequestDTO){
         return ResponseEntity.ok(ApiResponse.<TypeContratResponseDTO>builder()
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .sucsess(true)
                 .data(typeContratServiceInter.createTypCon(typeContratRequestDTO))
                 .build());
@@ -60,7 +60,7 @@ public class TypeContratController {
     public ResponseEntity<ApiResponse <List<TypeContratResponseDTO>>> getAllTypCon(){
         return ResponseEntity.ok(ApiResponse.<List<TypeContratResponseDTO>>builder()
                 .sucsess(true)
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .data(typeContratServiceInter.getAllTypCon())
                 .build());
     }
@@ -71,7 +71,7 @@ public class TypeContratController {
     public ResponseEntity<ApiResponse<TypeContratResponseDTO>> getTypConById(@PathVariable Long id){
         return ResponseEntity.ok(ApiResponse.<TypeContratResponseDTO>builder()
                 .data(typeContratServiceInter.getTypConById(id))
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .sucsess(true)
                 .build());
 

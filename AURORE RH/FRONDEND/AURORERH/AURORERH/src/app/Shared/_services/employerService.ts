@@ -2,13 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { employerModel } from "../_models/requests/employer-request.model";
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class EmployerService {
-
   constructor(private http: HttpClient) {
-
   }
 
  public get(url:string) {

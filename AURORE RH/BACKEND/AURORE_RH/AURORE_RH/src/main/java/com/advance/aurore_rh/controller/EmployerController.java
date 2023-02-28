@@ -33,7 +33,7 @@ public class    EmployerController {
     public ResponseEntity<ApiResponse<EmployerResponseDTO>>  updateEmpl(@RequestBody EmployerRequestDTO employerRequestDTO){
         return ResponseEntity.ok(ApiResponse.<EmployerResponseDTO>builder()
                 .sucsess(true)
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .data(employerServiceinter.updateEmpl(employerRequestDTO))
         .build());
 //    public EmployerResponseDTO update(@RequestBody EmployerRequestDTO employerRequestDTO) {
@@ -45,7 +45,7 @@ public class    EmployerController {
 
     public ResponseEntity<ApiResponse<EmployerResponseDTO>> createEmpl(@RequestBody EmployerRequestDTO employerRequestDTO){
         return ResponseEntity.ok(ApiResponse.<EmployerResponseDTO>builder()
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .sucsess(true)
                 .data(employerServiceinter.createEmpl(employerRequestDTO))
                 .build());
@@ -59,7 +59,7 @@ public class    EmployerController {
     public ResponseEntity<ApiResponse <List<EmployerResponseDTO>>> getAllEmpl(){
         return ResponseEntity.ok(ApiResponse.<List<EmployerResponseDTO>>builder()
                 .sucsess(true)
-                .message("operation effectuer")
+                .message("Opération effectuée")
                .data(employerServiceinter.getAllEmpl())
         .build());
 
@@ -72,7 +72,7 @@ public class    EmployerController {
     public ResponseEntity<ApiResponse<EmployerResponseDTO>> getEmplById(@PathVariable Long id){
         return ResponseEntity.ok(ApiResponse.<EmployerResponseDTO>builder()
                 .data(employerServiceinter.getEmplById(id))
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .sucsess(true)
                 .build());
 
@@ -88,7 +88,7 @@ public class    EmployerController {
     public ResponseEntity<ApiResponse<String>> deleteById(@PathVariable Long id){
         return ResponseEntity.ok(ApiResponse.<String>builder()
                 .sucsess(true)
-                .message("operation effectuer")
+                .message("Opération effectuée")
                 .data(employerServiceinter.deleteById(id))
                 .build());
 //    public String delete(@PathVariable Long id) {

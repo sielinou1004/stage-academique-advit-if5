@@ -24,7 +24,7 @@ public class User extends AuditEntity {
     @Column(length = 50)
     private String nom;
 
-    @Column(length = 150)
+
     private String password;
 
     @Email

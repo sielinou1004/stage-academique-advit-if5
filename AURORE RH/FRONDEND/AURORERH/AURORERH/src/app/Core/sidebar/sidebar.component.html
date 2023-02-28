@@ -32,15 +32,15 @@
       <div class="app-sidebar__inner">
           <ul class="vertical-nav-menu metismenu">
 
-              <li class="mm-active">
-                  <a routerLink="" href="index.html#" class="mm-active" aria-expanded="true">
+              <li >
+                  <a routerLink=""  routerLinkActive="mm-active" [routerLinkActiveOptions]="{exact: true}">
                     <i class=" metismenu-icon fas fa-home"></i>
                       Dashboards
                   </a>
 
 
               <li>
-                  <a href="index.html#" routerLink="listing-employer">
+                  <a routerLink="listing-employer" routerLinkActive="mm-active">
                       <i class="metismenu-icon  fas fa-user" ></i>
                       Employer
                       <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
@@ -48,45 +48,16 @@
                   </a>
                   <ul class="mm-collapse">
                       <li>
-                          <a href="pages-login.html">
+                          <a href="pages-login.html" [routerLink]="['/ajout-employer']" routerLinkActive="router-link-active"  routerLinkActive="mm-active">
                               <i class="metismenu-icon"></i>
-                              Login
+                              Ajout
                           </a>
                       </li>
-                      <li>
-                          <a href="pages-login-boxed.html">
-                              <i class="metismenu-icon">
-                              </i>Login Boxed
-                          </a>
-                      </li>
-                      <li>
-                          <a href="pages-register.html">
-                              <i class="metismenu-icon">
-                              </i>Register
-                          </a>
-                      </li>
-                      <li>
-                          <a href="pages-register-boxed.html">
-                              <i class="metismenu-icon">
-                              </i>Register Boxed
-                          </a>
-                      </li>
-                      <li>
-                          <a href="pages-forgot-password.html">
-                              <i class="metismenu-icon">
-                              </i>Forgot Password
-                          </a>
-                      </li>
-                      <li>
-                          <a href="pages-forgot-password-boxed.html">
-                              <i class="metismenu-icon">
-                              </i>Forgot Password Boxed
-                          </a>
-                      </li>
+
                   </ul>
               </li>
               <li>
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active" href="#" >
                       <i class=" metismenu-icon fas fa-file-contract"></i>
                       Contrats
 
@@ -142,7 +113,7 @@
               </li>
 
               <li>
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active">
                     <i class="metismenu-icon fas fa-sitemap"></i>
                     Formations
                     <i class="metismenu-state-icon fas fa-angle-down"></i>
@@ -245,7 +216,7 @@
                   </ul>
               </li>
               <li>
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active">
 
                       <i class=" metismenu-icon fas fa-user-graduate"></i>
                      Stagiaire
@@ -357,7 +328,7 @@
                   </ul>
               </li>
               <li>
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active">
                     <i class="metismenu-icon fas fa-sign-out"></i>
                       Congés et Permissions
                       <i class="metismenu-state-icon fas fa-angle-down"></i>
@@ -385,21 +356,21 @@
               </li>
 
               <li>
-                  <a href="widgets-chart-boxes.html">
+                  <a routerLinkActive="mm-active">
 
                         <i class="metismenu-icon fas fa-times-square"></i>
                       Sanctions
                   </a>
               </li>
               <li>
-                  <a href="widgets-chart-boxes-2.html">
+                  <a routerLinkActive="mm-active">
 
                         <i class="metismenu-icon fas fa-calendar"></i>
                      Calendar
                   </a>
               </li>
               <li>
-                  <a href="widgets-chart-boxes-3.html">
+                  <a routerLinkActive="mm-active">
 
                         <i class="metismenu-icon fas fa-print"></i>
                       Etat
@@ -413,7 +384,7 @@
 
               <li>
 
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active">
 
                       <i class="metismenu-icon fas fa-user-circle"></i>
                      Profile
@@ -448,7 +419,7 @@
                   </ul>
               </li>
               <li>
-                  <a href="index.html#">
+                  <a routerLinkActive="mm-active">
 
                       <i class=" metismenu-icon fas fa-cogs"></i>
                      Paramettre

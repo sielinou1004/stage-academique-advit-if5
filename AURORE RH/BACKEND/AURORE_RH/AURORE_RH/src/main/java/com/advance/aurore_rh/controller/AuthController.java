@@ -14,14 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin("*")
 
 public class AuthController {
 
@@ -38,27 +36,28 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    @ApiOperation("api de connexion")
-
     public ResponseEntity<ApiResponse> login(@RequestBody AuthenticateRequestDTO request){
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getLogin(),
-                        request.getPassword()
-                )
-        );
-        final UserDetails userDetails = userService.loadUserByUsername(request.getLogin());
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getLogin(),
+                            request.getPassword()
+                    )
+            );
+            final UserDetails userDetails = userService.loadUserByUsername(request.getLogin());
+            final String jwt = jwtUtils.generateToken(userDetails.getUsername());
+            AuthenticateResponseDTO data = AuthenticateResponseDTO.builder().token(jwt).build();
+            return ResponseEntity.ok(ApiResponse.builder()
+                    .data(data)
+                    .message("login reuissi")
+                    .sucsess(true)
+                    .build());
+        } catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+        }
 
-        final String jwt = jwtUtils.generateToken(userDetails.getUsername());
-
-        AuthenticateResponseDTO data = AuthenticateResponseDTO.builder().token(jwt).build();
-
-        return ResponseEntity.ok(ApiResponse.builder()
-                .data(data)
-                .message("login reuissi")
-                .sucsess(true)
-                .build());
-    }
 
 
     @PostMapping("/signIn")
@@ -66,8 +65,6 @@ public class AuthController {
 
         if (authService.existByEmail(user.getEmail()))
             throw new RuntimeException("cette addresse mail existe deja ");
-
-
         return ResponseEntity.ok(
                 ApiResponse.<SingInResponseDTO>builder()
                 .message("Enregistrement reuissie")
@@ -75,7 +72,6 @@ public class AuthController {
                 .data(authService.createUser(user))
                 .build()
         );
-
 
 //        return ResponseEntity.ok(ApiResponse.builder()
 //                .data(user.getUsername())

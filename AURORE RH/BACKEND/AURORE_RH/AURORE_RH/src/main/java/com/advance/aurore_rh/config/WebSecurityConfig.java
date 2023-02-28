@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.firewall.DefaultHttpFirewall;
 
 @EnableWebSecurity
 
@@ -31,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.csrf().and().cors().disable()
+      http.csrf().disable()
               .authorizeHttpRequests()
               .antMatchers(
                       "/swagger-ui.html",
@@ -49,7 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
               .authenticated();
     }
 
-
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.httpFirewall(new DefaultHttpFirewall());
+//    }
 
 
     @Override

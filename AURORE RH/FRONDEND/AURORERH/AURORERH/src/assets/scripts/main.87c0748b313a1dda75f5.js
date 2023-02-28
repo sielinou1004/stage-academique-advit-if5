@@ -56297,7 +56297,8 @@
 			this.width = t, this.height = e, this.node.setAttribute("width", t), this.node.setAttribute("height", e)
 		}, c.SVGCanvasElement.prototype.applyTransformParams = function(t, e, i) {
 			this.scale = t, this.transX = e, this.transY = i, this.rootElement.node.setAttribute("transform", "scale(" + t + ") translate(" + e + ", " + i + ")")
-		}, c.SVGShapeElement = function(t, e) {
+		},
+    c.SVGShapeElement = function(t, e) {
 			c.SVGShapeElement.parentClass.call(this, t, e), c.AbstractShapeElement.apply(this, arguments)
 		}, c.inherits(c.SVGShapeElement, c.SVGElement), c.mixin(c.SVGShapeElement, c.AbstractShapeElement), c.SVGShapeElement.prototype.applyAttr = function(t, e) {
 			var i, n, a = this;

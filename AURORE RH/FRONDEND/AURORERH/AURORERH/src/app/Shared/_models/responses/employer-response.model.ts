@@ -1,5 +1,5 @@
 
-export class employerModel{
+export class EmployerReponseModel{
   constructor (
 
   public  adresse: string,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/shared/_services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private tokenStorage: TokenStorageService
+  ) { }
 
   ngOnInit(): void {
+
+  }
+  signOut(){
+    this.tokenStorage.signOut();
   }
 
 }
