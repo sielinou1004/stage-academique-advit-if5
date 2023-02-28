@@ -21,7 +21,7 @@ public class AuthService implements AuthServiceInter {
     public SingInResponseDTO createUser(SignInRequestDTO signInRequestDTO) {
 
         User user = userRepository.save(SignInRequestDTO.buildFromDto(signInRequestDTO));
-        return SingInResponseDTO.builder().resultat(user.getNom()).build();
+        return SingInResponseDTO.builder().resultat(user.getUsername()).build();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class AuthService implements AuthServiceInter {
                 .map(u -> {
                     u.setPassword(signInRequestDTO.getPassword());
                     u.setEmail(signInRequestDTO.getEmail());
-                    u.setNom(signInRequestDTO.getNom());
+                    u.setUsername(signInRequestDTO.getUsername());
                     return userRepository.save(u); }
 
                 ).orElseThrow(()->new RuntimeException("Aucun user trouvé"));

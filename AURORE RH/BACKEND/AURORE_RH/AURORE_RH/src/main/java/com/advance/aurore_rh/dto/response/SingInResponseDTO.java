@@ -14,7 +14,7 @@ public class SingInResponseDTO {
     public static SingInResponseDTO buildFronEntity(User entity){
         return SingInResponseDTO.builder()
 //                .password(entity.getPassword())
-                .resultat(entity.getNom())
+                .resultat(entity.getUsername())
                 .build();
 
 

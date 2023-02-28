@@ -40,13 +40,19 @@ public class AuthController {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.getLogin(),
+                            request.getUsername(),
                             request.getPassword()
                     )
             );
-            final UserDetails userDetails = userService.loadUserByUsername(request.getLogin());
+            final UserDetails userDetails = userService.loadUserByUsername(request.getUsername());
             final String jwt = jwtUtils.generateToken(userDetails.getUsername());
-            AuthenticateResponseDTO data = AuthenticateResponseDTO.builder().token(jwt).build();
+
+            userService.findByUserName(request.getUsername());
+            AuthenticateResponseDTO data = AuthenticateResponseDTO.
+                    builder()
+                    .token(jwt)
+                    .userResponseDto(  userService.findByUserName(request.getUsername()))
+                    .build();
             return ResponseEntity.ok(ApiResponse.builder()
                     .data(data)
                     .message("login reuissi")

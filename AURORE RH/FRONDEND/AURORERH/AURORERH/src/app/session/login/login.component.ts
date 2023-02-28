@@ -64,9 +64,11 @@ export class LoginComponent implements OnInit {
         this.authService.login(dto)
             .subscribe((result: any) => {
             console.log('result', result)
-            this.tokenStorage.saveToken(result.token);
+            this.tokenStorage.saveToken(result.data.token);
+            this.tokenStorage.saveUser(result.data.userResponseDto);
             this.isLoading = !this.isLoading;
             this.notif.success('Connexion avec sucsess ')
+            window.location.reload();
             if (this.tokenStorage.getUser() || this.tokenStorage.getToken()){
                 this.router.navigate(['']).then(() => {});
             }

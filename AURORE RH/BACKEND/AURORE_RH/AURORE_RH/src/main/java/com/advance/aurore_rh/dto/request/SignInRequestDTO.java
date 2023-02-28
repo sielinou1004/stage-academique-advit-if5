@@ -13,14 +13,14 @@ import lombok.Data;
 public class SignInRequestDTO {
 
 
-    private String nom;
+    private String username;
     private String password;
     private String email;
 
     public static User buildFromDto(SignInRequestDTO dto){
         return User.UserBuilder.anUser()
 
-                .nom(dto.getNom())
+                .username(dto.getUsername())
                 .email(dto.getEmail())
                 .password(GeneralUtils.genererPasswordUser(dto.getPassword()))
                 .build();

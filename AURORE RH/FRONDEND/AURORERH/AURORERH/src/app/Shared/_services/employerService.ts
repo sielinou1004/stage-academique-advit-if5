@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { employerModel } from "../_models/requests/employer-request.model";
+import { EmployerRequestModel } from "../_models/requests/employer-request.model";
 
 
 @Injectable({
@@ -14,11 +14,11 @@ export class EmployerService {
   return this.http.get(url).toPromise();
  }
 
- public post(url:string, dto:employerModel){
+ public post(url:string, dto:EmployerRequestModel){
   return this.http.post(url,dto).toPromise();
  }
 
- public put(url:string,dto:employerModel){
+ public put(url:string,dto:EmployerRequestModel){
   return  this.http.put(url,dto).toPromise();
  }
 

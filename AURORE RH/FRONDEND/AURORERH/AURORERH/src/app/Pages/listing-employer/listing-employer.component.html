@@ -1,11 +1,16 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <a routerLink="ajout-employer"   class="mb-2 mr-2 btn-icon btn btn-success" >
-        <i class="fa-solid fa-user"></i>
-        Ajouter
+      <a routerLink="ajout-employer"   >
+        <button  class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+          Ajouter </button>
+
       </a>
-     
+      <a href="pages-login.html" routerLink="ajout-employer" routerLinkActive="router-link-active"  routerLinkActive="mm-active">
+        <i class="metismenu-icon"></i>
+        Ajout d'un employer
+    </a>
+
 
       <table style="width: 100%; background-color: white;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
   <thead>
@@ -32,7 +37,7 @@
         <button class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
           <i class="fa-solid fa-pen"></i>
         </button>
-        <button class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">
+        <button (click)="deleteEmployer(employer)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">
           <i class="fa-solid fa-trash"></i>
         </button>
       </td>
@@ -42,8 +47,8 @@
   <tr><th rowspan="1" colspan="1">Nom</th>
     <th rowspan="1" colspan="1">Matricule</th>
     <th rowspan="1" colspan="1">poste</th>
-    <th rowspan="1" colspan="1">Age</th>
-    <th rowspan="1" colspan="1">Start date</th>
+    <th rowspan="1" colspan="1">type de contrat</th>
+    <th rowspan="1" colspan="1">date de debut</th>
     <th rowspan="1" colspan="1">Action</th>
   </tr>
   </tfoot>
@@ -51,35 +56,4 @@
 </div>
 </div>
 <div class="row">
-
-  <div class="col-sm-12 col-md-7">
-      <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
-        <ul class="pagination">
-      <li class="paginate_button page-item previous disabled" id="example_previous">
-        <a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-      </li>
-      <li class="paginate_button page-item active">
-        <a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-      </li>
-      <li class="paginate_button page-item ">
-        <a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-      </li>
-      <li class="paginate_button page-item ">
-        <a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-      </li>
-      <li class="paginate_button page-item ">
-        <a href="#" aria-controls="example" data-dt-idx="4" tabindex="0" class="page-link">4</a>
-      </li>
-      <li class="paginate_button page-item ">
-        <a href="#" aria-controls="example" data-dt-idx="5" tabindex="0" class="page-link">5</a>
-      </li>
-      <li class="paginate_button page-item ">
-        <a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">6</a>
-      </li>
-      <li class="paginate_button page-item next" id="example_next">
-        <a href="#" aria-controls="example" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
-      </li>
-    </ul>
-  </div>
-</div>
 </div>

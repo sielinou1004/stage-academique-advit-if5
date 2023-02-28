@@ -28,7 +28,7 @@ export class UserGuardService implements CanActivate {
         return !helper.isTokenExpired(this.tokenStorage.getToken());
       }
     } else {
-      this.notifService.warning('acces refuse');
+      // this.notifService.warning('acces refuse');
       this.router.navigate (['/session/login']);
     }
 

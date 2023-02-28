@@ -8,6 +8,6 @@ import lombok.Data;
 @Builder
 public class AuthenticateRequestDTO {
 
-    private String login;
+    private String Username;
     private String password;
 }

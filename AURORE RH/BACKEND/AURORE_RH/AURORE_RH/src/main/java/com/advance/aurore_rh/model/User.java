@@ -22,8 +22,7 @@ public class User extends AuditEntity {
     private long create_id;
 
     @Column(length = 50)
-    private String nom;
-
+    private String username;
 
     private String password;
 
@@ -32,11 +31,9 @@ public class User extends AuditEntity {
     private String email;
 
 
-
-
     public static final class UserBuilder {
         private long create_id;
-        private String nom;
+        private String username;
         private String password;
         private @Email String email;
         private Long version;
@@ -44,6 +41,7 @@ public class User extends AuditEntity {
         private LocalDateTime date_modif;
         private String util_creation;
         private String util_modif;
+        private Character forwarded;
 
         private UserBuilder() {
         }
@@ -57,8 +55,8 @@ public class User extends AuditEntity {
             return this;
         }
 
-        public UserBuilder nom(String nom) {
-            this.nom = nom;
+        public UserBuilder username(String username) {
+            this.username = username;
             return this;
         }
 
@@ -97,10 +95,15 @@ public class User extends AuditEntity {
             return this;
         }
 
+        public UserBuilder forwarded(Character forwarded) {
+            this.forwarded = forwarded;
+            return this;
+        }
+
         public User build() {
             User user = new User();
             user.setCreate_id(create_id);
-            user.setNom(nom);
+            user.setUsername(username);
             user.setPassword(password);
             user.setEmail(email);
             user.setVersion(version);
@@ -108,6 +111,7 @@ public class User extends AuditEntity {
             user.setDate_modif(date_modif);
             user.setUtil_creation(util_creation);
             user.setUtil_modif(util_modif);
+            user.setForwarded(forwarded);
             return user;
         }
     }

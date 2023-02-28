@@ -1,5 +1,6 @@
 package com.advance.aurore_rh.service.auth;
 
+import com.advance.aurore_rh.dto.response.UserResponseDto;
 import com.advance.aurore_rh.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,19 @@ public class ApplicationUserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         com.advance.aurore_rh.model.User user = userRepository
-                .findByNom(username).orElseThrow(
+                .findByUsername(username).orElseThrow(
                 ()->new RuntimeException("utilisateur non trouvé")
         );
 
-        return  new User(user.getNom(), user.getPassword(), Collections.emptyList());
+        return  new User(user.getUsername(), user.getPassword(), Collections.emptyList());
     }
+
+
+    public UserResponseDto findByUserName(String username){
+        com.advance.aurore_rh.model.User user =  userRepository.findByUsername(username).orElse(null);
+
+        return UserResponseDto.builder().username((user == null)? null:user.getUsername()).build();
+    }
+
 
 }

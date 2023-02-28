@@ -1,5 +1,5 @@
 
-export class employerModel{
+export class EmployerRequestModel{
   constructor (
     public  adresse: string,
     public  date_debut: string,

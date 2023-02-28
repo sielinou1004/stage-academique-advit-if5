@@ -8,16 +8,22 @@ import { TokenStorageService } from 'src/app/shared/_services/token-storage.serv
 })
 export class HeaderComponent implements OnInit {
 
-
+  currentUser!:any;
   constructor(
     private tokenStorage: TokenStorageService
   ) { }
 
   ngOnInit(): void {
-
+    this.getUser();
   }
   signOut(){
     this.tokenStorage.signOut();
+  }
+
+  getUser(){
+    this.currentUser = this.tokenStorage.getUser()
+    
+
   }
 
 }

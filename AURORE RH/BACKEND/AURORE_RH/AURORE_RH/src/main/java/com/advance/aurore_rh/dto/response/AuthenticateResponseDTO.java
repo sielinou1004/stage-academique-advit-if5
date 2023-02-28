@@ -8,4 +8,7 @@ import lombok.Data;
 @Builder
 public class AuthenticateResponseDTO {
     private String token;
+    private UserResponseDto userResponseDto;
+
+
 }
