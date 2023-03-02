@@ -20,6 +20,8 @@ import { authInterceptorProviders } from './shared/_helpers/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.co
     AjoutEmployerComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -42,11 +45,14 @@ import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.co
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+
+
   ],
   providers: [
     UserGuardService,
     authInterceptorProviders,
+    AjoutEmployerComponent
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

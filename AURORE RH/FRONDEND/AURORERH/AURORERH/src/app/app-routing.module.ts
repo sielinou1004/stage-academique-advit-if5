@@ -14,7 +14,8 @@ const routes: Routes = [
   children:[
     {path:'', component:DashboardComponent},
     {path:'listing-employer', component:ListingEmployerComponent },
-    {path: 'ajout-employer', component:AjoutEmployerComponent}
+    {path: 'ajout-employer', component:AjoutEmployerComponent},
+    {path: 'ajout-employer/:id', component:AjoutEmployerComponent}
   ]
 },
 
@@ -27,6 +28,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
 
 }

@@ -1,17 +1,7 @@
-
-  <div class="row">
+<div class="row">
     <div class="col-sm-12">
-      <a routerLink="ajout-employer"   >
-        <button  class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+        <button (click)="goTo()"  class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
           Ajouter </button>
-
-      </a>
-      <a href="pages-login.html" routerLink="ajout-employer" routerLinkActive="router-link-active"  routerLinkActive="mm-active">
-        <i class="metismenu-icon"></i>
-        Ajout d'un employer
-    </a>
-
-
       <table style="width: 100%; background-color: white;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
   <thead>
   <tr role="row">
@@ -29,15 +19,15 @@
       <td>{{employer?.matricule}}</td>
       <td>{{employer?.poste}}</td>
       <td>{{employer?.type_contrat}}</td>
-      <td>{{employer?.date_debut}}</td>
+      <td>{{employer?.date_debut | date: 'dd-MM-yyy'}}</td>
       <td >
-        <button class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-alternate">
+        <button class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
           <i class="fa-solid fa-eye"></i>
         </button>
-        <button class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
+        <button (click)="recupId(employer)" routerLinkActive="router-link-active"  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
           <i class="fa-solid fa-pen"></i>
         </button>
-        <button (click)="deleteEmployer(employer)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">
+        <button  (click)="deleteEmployer(employer)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">
           <i class="fa-solid fa-trash"></i>
         </button>
       </td>
@@ -57,3 +47,5 @@
 </div>
 <div class="row">
 </div>
+
+

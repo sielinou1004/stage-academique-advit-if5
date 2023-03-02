@@ -29001,22 +29001,22 @@
 							sSortDescending: ": activate to sort column descending"
 						},
 						oPaginate: {
-							sFirst: "First",
-							sLast: "Last",
-							sNext: "Next",
-							sPrevious: "Previous"
+							sFirst: "Premier",
+							sLast: "Dernier",
+							sNext: "Suivant",
+							sPrevious: "Précedent"
 						},
-						sEmptyTable: "No data available in table",
-						sInfo: "Showing _START_ to _END_ of _TOTAL_ entries",
-						sInfoEmpty: "Showing 0 to 0 of 0 entries",
+						sEmptyTable: "pas de données dans la table",
+						sInfo: "Montrer _START_ a _END_ de _TOTAL_ entrées",
+						sInfoEmpty: "Montrer 0 a 0 de 0 entrées",
 						sInfoFiltered: "(filtered from _MAX_ total entries)",
 						sInfoPostFix: "",
 						sDecimal: "",
 						sThousands: ",",
-						sLengthMenu: "Show _MENU_ entries",
+						sLengthMenu: "Montrer _MENU_ entrées",
 						sLoadingRecords: "Loading...",
 						sProcessing: "Processing...",
-						sSearch: "Search:",
+						sSearch: "Recherche:",
 						sSearchPlaceholder: "",
 						sUrl: "",
 						sZeroRecords: "No matching records found"

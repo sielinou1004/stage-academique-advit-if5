@@ -61,12 +61,8 @@ public class Conger extends AuditEntity {
         private Date date_reprise;
         private Date etablissement_conger;
         private String Description;
-        private Long version;
-        private LocalDateTime date_creation;
-        private LocalDateTime date_modif;
-        private String util_creation;
-        private String util_modif;
-        private Character forwarded;
+        private TypeConger typeConger;
+        private List<Employer> employers;
 
         private CongerBuilder() {
         }
@@ -120,33 +116,13 @@ public class Conger extends AuditEntity {
             return this;
         }
 
-        public CongerBuilder version(Long version) {
-            this.version = version;
+        public CongerBuilder typeConger(TypeConger typeConger) {
+            this.typeConger = typeConger;
             return this;
         }
 
-        public CongerBuilder date_creation(LocalDateTime date_creation) {
-            this.date_creation = date_creation;
-            return this;
-        }
-
-        public CongerBuilder date_modif(LocalDateTime date_modif) {
-            this.date_modif = date_modif;
-            return this;
-        }
-
-        public CongerBuilder util_creation(String util_creation) {
-            this.util_creation = util_creation;
-            return this;
-        }
-
-        public CongerBuilder util_modif(String util_modif) {
-            this.util_modif = util_modif;
-            return this;
-        }
-
-        public CongerBuilder forwarded(Character forwarded) {
-            this.forwarded = forwarded;
+        public CongerBuilder employers(List<Employer> employers) {
+            this.employers = employers;
             return this;
         }
 
@@ -161,12 +137,8 @@ public class Conger extends AuditEntity {
             conger.setDate_reprise(date_reprise);
             conger.setEtablissement_conger(etablissement_conger);
             conger.setDescription(Description);
-            conger.setVersion(version);
-            conger.setDate_creation(date_creation);
-            conger.setDate_modif(date_modif);
-            conger.setUtil_creation(util_creation);
-            conger.setUtil_modif(util_modif);
-            conger.setForwarded(forwarded);
+            conger.setTypeConger(typeConger);
+            conger.setEmployers(employers);
             return conger;
         }
     }

@@ -9,6 +9,6 @@ export const ADD_EMPLOYER = EMPLOYERS + '/create';
 export const UPDATE_EMPLOYER = EMPLOYERS + '/update';
 export const DELETE_EMPLOYER = EMPLOYERS + '/delete';
 export const READ_EMPLOYER = EMPLOYERS + '/read';
-export const READBYID_EMPLOYER = EMPLOYERS + '/read/{id}';
+export const READBYID_EMPLOYER = EMPLOYERS + '/read';
 
 export const AUTH = SERVEUR + 'auth/login';

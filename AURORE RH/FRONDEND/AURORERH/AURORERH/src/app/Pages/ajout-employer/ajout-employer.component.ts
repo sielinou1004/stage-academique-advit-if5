@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADD_EMPLOYER } from 'src/app/shared/_elements/api_constante';
+import * as moment from 'moment';
+import { ADD_EMPLOYER, READBYID_EMPLOYER, UPDATE_EMPLOYER } from 'src/app/shared/_elements/api_constante';
 import { EmployerRequestModel } from 'src/app/shared/_models/requests/employer-request.model';
+import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
 import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 
@@ -18,6 +20,8 @@ export class AjoutEmployerComponent implements OnInit {
   public formEmployer!: FormGroup;
   public submitted!: boolean;
   public isLoading!: boolean;
+  public id!: any;
+
 
   constructor(
     private employerService: EmployerService,
@@ -28,32 +32,43 @@ export class AjoutEmployerComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.initFormEmployer();
+    this.initFormEmployer(null);
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    this.editEmployer(this.id);
   }
+
+  editEmployer(id:number){
+    this.employerService.get(`${READBYID_EMPLOYER}/${id}`)
+    .then((response:any)=>{
+      console.log('response', response)
+      this.initFormEmployer(response.data)
+    });
+  }
+
   get f() { return this.formEmployer.controls; }
 
-  private initFormEmployer() {
+  public initFormEmployer(data: any) {
     this.formEmployer = this.fb.group({
-        nom: ['', Validators.required],
-        matricule: ['', Validators.required],
-        adresse:[''],
-        date_debut:[''],
-        date_fin:[''],
-        date_naissance:[''],
-        id:[''],
-        lieu_naissance:[''],
-        nationalite:[''],
-        nbr_enfant:[''],
-        numero:[''],
-        photo:[''],
-        poste:['', Validators.required],
-        prenom:[''],
-        profession:['', Validators.required],
-        sexe:[''],
-        statut_matrimoniale:[''],
-        type_contrat:['', Validators.required],
-        ville_exertion:['', Validators.required],
-
+        nom: [data ? data.nom :  '', Validators.required],
+        matricule: [data ? data.matricule: '', Validators.required],
+        adresse:[data ? data.adresse: ''],
+        date_debut:[data ?  moment(data.date_debut,'YYYY-MM-DD'): ''],
+        date_fin:[data ? data.date_fin: ''],
+        date_naissance:[data ? data.date_naissance: ''],
+        id:[data ? data.id: ''],
+        lieu_naissance:[data ? data.lieu_naissance: ''],
+        nationalite:[data ? data.nationalite: ''],
+        nbr_enfant:[data ? data.nbr_enfant: ''],
+        numero:[data ? data.numero: ''],
+        photo:[data ? data.photo: ''],
+        poste:[data ? data.poste: '', Validators.required],
+        prenom:[data ? data.prenom: ''],
+        profession:[data ? data.profession: '', Validators.required],
+        sexe:[data ? data.sexe: ''],
+        statut_matrimoniale:[data ? data.statut_matrimoniale: ''],
+        type_contrat:[data ? data.type_contrat: '', Validators.required],
+        ville_exertion:[data ? data.ville_exertion: '', Validators.required],
 
     });
 }
@@ -64,6 +79,8 @@ export class AjoutEmployerComponent implements OnInit {
         this.isLoading = !this.isLoading;
         return;
     }
+    console.log('f',this.f)
+    console.log( 'fb',this.fb)
     let dto;
     dto = new EmployerRequestModel(
       this.f.adresse.value,
@@ -86,6 +103,7 @@ export class AjoutEmployerComponent implements OnInit {
       this.f.type_contrat.value,
       this.f.ville_exertion.value
       )
+      console.log('avant', dto)
     this.employerService.post(ADD_EMPLOYER,dto )
     .then((response: any) =>{
     console.log('response', response)
@@ -100,7 +118,8 @@ export class AjoutEmployerComponent implements OnInit {
       this.isLoading = !this.isLoading;
       this.isLoginFailed = true;
   })
-
-
 }
+
+
+
 }

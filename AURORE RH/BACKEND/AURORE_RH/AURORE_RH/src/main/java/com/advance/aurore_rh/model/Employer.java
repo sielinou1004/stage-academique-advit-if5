@@ -52,6 +52,7 @@ public class Employer extends AuditEntity {
     @Column(length = 50)
     private String type_contrat;
 
+    @Column()
     private Date date_debut;
 
     private  Date date_fin;
@@ -149,12 +150,6 @@ public class Employer extends AuditEntity {
         private List<NoteProfessionel> noteProfessionels;
         private List<Conger> congers;
         private List<Sanction> sanctions;
-        private Long version;
-        private LocalDateTime date_creation;
-        private LocalDateTime date_modif;
-        private String util_creation;
-        private String util_modif;
-        private Character forwarded;
 
         private EmployerBuilder() {
         }
@@ -288,36 +283,6 @@ public class Employer extends AuditEntity {
             return this;
         }
 
-        public EmployerBuilder version(Long version) {
-            this.version = version;
-            return this;
-        }
-
-        public EmployerBuilder date_creation(LocalDateTime date_creation) {
-            this.date_creation = date_creation;
-            return this;
-        }
-
-        public EmployerBuilder date_modif(LocalDateTime date_modif) {
-            this.date_modif = date_modif;
-            return this;
-        }
-
-        public EmployerBuilder util_creation(String util_creation) {
-            this.util_creation = util_creation;
-            return this;
-        }
-
-        public EmployerBuilder util_modif(String util_modif) {
-            this.util_modif = util_modif;
-            return this;
-        }
-
-        public EmployerBuilder forwarded(Character forwarded) {
-            this.forwarded = forwarded;
-            return this;
-        }
-
         public Employer build() {
             Employer employer = new Employer();
             employer.setId(id);
@@ -345,12 +310,6 @@ public class Employer extends AuditEntity {
             employer.setNoteProfessionels(noteProfessionels);
             employer.setCongers(congers);
             employer.setSanctions(sanctions);
-            employer.setVersion(version);
-            employer.setDate_creation(date_creation);
-            employer.setDate_modif(date_modif);
-            employer.setUtil_creation(util_creation);
-            employer.setUtil_modif(util_modif);
-            employer.setForwarded(forwarded);
             return employer;
         }
     }
