@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as moment from 'moment';
+
 import { ADD_EMPLOYER, READBYID_EMPLOYER, UPDATE_EMPLOYER } from 'src/app/shared/_elements/api_constante';
 import { EmployerRequestModel } from 'src/app/shared/_models/requests/employer-request.model';
 import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
@@ -53,7 +53,7 @@ export class AjoutEmployerComponent implements OnInit {
         nom: [data ? data.nom :  '', Validators.required],
         matricule: [data ? data.matricule: '', Validators.required],
         adresse:[data ? data.adresse: ''],
-        date_debut:[data ?  moment(data.date_debut,'YYYY-MM-DD'): ''],
+        date_debut:[data ?data.date_debut: ''],
         date_fin:[data ? data.date_fin: ''],
         date_naissance:[data ? data.date_naissance: ''],
         id:[data ? data.id: ''],

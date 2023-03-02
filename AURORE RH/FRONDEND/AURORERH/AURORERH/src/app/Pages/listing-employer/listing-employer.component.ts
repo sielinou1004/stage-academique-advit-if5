@@ -27,6 +27,7 @@ export class ListingEmployerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployer();
+    
 
   }
 
@@ -72,6 +73,10 @@ export class ListingEmployerComponent implements OnInit {
 
   goTo(){
     this.router.navigate(['/ajout-employer'])
+  }
+
+  goToViewId(employer: EmployerReponseModel){
+    this.router.navigate(['/affich-employer/', employer.id])
   }
 
   recupId(employer: EmployerReponseModel){

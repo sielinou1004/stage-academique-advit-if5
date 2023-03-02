@@ -19,6 +19,9 @@ import { UserGuardService } from './shared/_helpers/user-guard.service';
 import { authInterceptorProviders } from './shared/_helpers/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
+import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer.component';
+import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
+
 
 
 
@@ -33,6 +36,8 @@ import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.co
     LoginComponent,
     SigninComponent,
     AjoutEmployerComponent,
+    AffichEmployerComponent,
+    ListingContratComponent
 
 
 
