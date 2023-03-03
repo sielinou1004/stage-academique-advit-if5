@@ -29007,8 +29007,8 @@
 							sPrevious: "Précedent"
 						},
 						sEmptyTable: "pas de données dans la table",
-						sInfo: "Montrer _START_ a _END_ de _TOTAL_ entrées",
-						sInfoEmpty: "Montrer 0 a 0 de 0 entrées",
+						sInfo: "Montre _START_ a _END_ de _TOTAL_ entrées",
+						sInfoEmpty: "Montre 0 a 0 de 0 entrées",
 						sInfoFiltered: "(filtered from _MAX_ total entries)",
 						sInfoPostFix: "",
 						sDecimal: "",

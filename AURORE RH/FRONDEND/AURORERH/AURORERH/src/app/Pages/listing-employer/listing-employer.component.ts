@@ -27,7 +27,7 @@ export class ListingEmployerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployer();
-    
+
 
   }
 
@@ -45,7 +45,7 @@ export class ListingEmployerComponent implements OnInit {
       text: "Vous ne pourrez pas revenir en arrière !",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: 'green',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Oui, supprimez !'
     }).then((result) => {

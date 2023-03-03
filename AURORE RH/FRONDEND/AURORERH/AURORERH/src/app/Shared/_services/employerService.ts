@@ -6,6 +6,7 @@ import { EmployerRequestModel } from "../_models/requests/employer-request.model
 @Injectable({
   providedIn: 'root',
 })
+
 export class EmployerService {
   constructor(private http: HttpClient) {
   }

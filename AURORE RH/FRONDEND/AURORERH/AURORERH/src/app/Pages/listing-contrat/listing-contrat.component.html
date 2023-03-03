@@ -1,1 +1,54 @@
-<p>listing-contrat works!</p>
+<div class="row">
+  <h3 style="margin-left: 3rem;"><b>Liste des Contrats</b> </h3>
+  <hr>
+    <div class="col-sm-12">
+        <button   class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+          Ajouter </button>
+          <br>  <br>
+      <table style="width: 100%; background-color: white;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
+  <thead>
+  <tr role="row">
+    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 52.2px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nom</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 72.2px;" aria-label="Position: activate to sort column ascending">Type de contrat</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 44.2px;" aria-label="Office: activate to sort column ascending">poste</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 27.2px;" aria-label="Age: activate to sort column ascending">Date de debut</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px ;" aria-label="Start date: activate to sort column ascending"> Salaire brut</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 16%;" aria-label="Salary: activate to sort column ascending">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr role="row" class="odd" *ngFor="let contrat of contrats ">
+      <td tabindex="0" class="sorting_1">{{contrat?.nom}}</td>
+      <td>{{contrat?.type_contrat}}</td>
+      <td>{{contrat?.poste}}</td>
+      <td>{{contrat?.date_embauche | date: 'dd/MM/yyyy' }}</td>
+      <td>{{contrat?.Salaire_brut }}</td>
+      <td >
+        <button  routerLink="/affich-employer" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+        <button  routerLinkActive="router-link-active"  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button  (click)="deleteContrat(contrat)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </td>
+  </tr>
+</tbody>
+  <tfoot  >
+  <tr><th rowspan="1" colspan="1">Nom</th>
+    <th rowspan="1" colspan="1">Type de contrat</th>
+    <th rowspan="1" colspan="1">poste</th>
+    <th rowspan="1" colspan="1">Date de debut</th>
+    <th rowspan="1" colspan="1">Salaire brut</th>
+    <th rowspan="1" colspan="1">Action</th>
+  </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div class="row">
+</div>
+
+

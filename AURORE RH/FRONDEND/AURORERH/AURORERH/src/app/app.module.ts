@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
 import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer.component';
 import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
+import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
 
 
 
@@ -37,7 +38,8 @@ import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat
     SigninComponent,
     AjoutEmployerComponent,
     AffichEmployerComponent,
-    ListingContratComponent
+    ListingContratComponent,
+    AjoutContratComponent
 
 
 
