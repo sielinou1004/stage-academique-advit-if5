@@ -1,10 +1,19 @@
 <div class="row">
-  <h3 style="margin-left: 3rem;"><b>Liste des Employés</b> </h3>
+ 
+  <h3 style="margin-left: 3rem;color: blue;"><b>Liste des Employés</b> </h3>
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a  routerLink="listing-employer" routerLinkActive="router-link-active"  >Employés</a></li>
+        <li class="breadcrumb-item"><a (click)="goTi()" style="color: blue;">Liste des employés </a></li>
+      </ol>
+    </nav>
+  </div>
   <hr>
     <div class="col-sm-12">
-        <button (click)="goTo()"  class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+        <button (click)="goTo()" style="float: right;  " class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
           Ajouter </button>
-          <br>  <br>  
+          <br>  <br>
       <table style="width: 100%; background-color: white;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
   <thead>
   <tr role="row">
@@ -18,12 +27,13 @@
   </thead>
   <tbody>
   <tr role="row" class="odd" *ngFor="let employer of employers">
+
       <td tabindex="0" class="sorting_1">{{employer?.nom}}</td>
       <td>{{employer?.matricule}}</td>
       <td>{{employer?.poste}}</td>
       <td>{{employer?.type_contrat}}</td>
       <td>{{employer?.date_debut | date: 'dd-MM-yyy'}}</td>
-      <td >
+      <td>
         <button  (click)="goToViewId(employer)" routerLink="/affich-employer" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
           <i class="fa-solid fa-eye"></i>
         </button>
@@ -35,16 +45,17 @@
         </button>
       </td>
   </tr>
-</tbody>
+<!-- </tbody>
   <tfoot  >
-  <tr><th rowspan="1" colspan="1">Nom</th>
+  <tr>
+    <th rowspan="1" colspan="1">Nom</th>
     <th rowspan="1" colspan="1">Matricule</th>
     <th rowspan="1" colspan="1">poste</th>
     <th rowspan="1" colspan="1">type de contrat</th>
     <th rowspan="1" colspan="1">date de debut</th>
     <th rowspan="1" colspan="1">Action</th>
   </tr>
-  </tfoot>
+  </tfoot> -->
 </table>
 </div>
 </div>

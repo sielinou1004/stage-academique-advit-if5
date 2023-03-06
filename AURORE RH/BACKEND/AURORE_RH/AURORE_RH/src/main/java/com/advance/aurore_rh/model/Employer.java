@@ -27,13 +27,11 @@ public class Employer extends AuditEntity {
     @Column(length = 50)
     private String nom;
 
-
     @Column(length = 50)
     private String prenom;
 
     @Column(length = 50)
     private String photo;
-
 
     private Date date_naissance;
 
@@ -75,7 +73,6 @@ public class Employer extends AuditEntity {
     @Column(length = 50)
     private String profession;
 
-    @Column(length = 50)
     private String poste;
 
     @OneToOne
@@ -97,7 +94,6 @@ public class Employer extends AuditEntity {
     @OneToMany(mappedBy = "employer")
     private List<EmployerFormation> employerFormations;
 
-
     @ManyToMany
     @JoinTable(
             name = "LNCK_EMPLOYER_NOTEPROFESSIONEL",
@@ -105,7 +101,6 @@ public class Employer extends AuditEntity {
             inverseJoinColumns = @JoinColumn(name = "noteprofessionel_id")
     )
     private List<NoteProfessionel> noteProfessionels;
-
 
     @ManyToMany
     @JoinTable(
@@ -122,7 +117,6 @@ public class Employer extends AuditEntity {
             inverseJoinColumns = @JoinColumn(name = "sanction_id")
     )
     private List<Sanction> sanctions;
-
 
     public static final class EmployerBuilder {
         private long id;

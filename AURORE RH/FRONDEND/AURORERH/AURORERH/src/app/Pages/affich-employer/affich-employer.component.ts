@@ -29,7 +29,7 @@ export class AffichEmployerComponent implements OnInit {
     .then((response:any)=>{
       console.log('response', response)
       this.id = response.data
-      console.log( this.id)
+      console.log( 'test', this.id)
     });
   }
 }

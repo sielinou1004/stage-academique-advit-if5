@@ -1,8 +1,16 @@
 <div class="row">
-  <h3 style="margin-left: 3rem;"><b>Liste des Contrats</b> </h3>
+  <h3 style="margin-left: 3rem;color: blue;"><b>Liste des Contrats</b> </h3>
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a  >Contrats</a></li>
+        <li class="breadcrumb-item"><a (click)="goTi()" style="color: blue;">Liste des Contrats </a></li>
+      </ol>
+    </nav>
+  </div>
   <hr>
     <div class="col-sm-12">
-        <button   class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+        <button  (click)="goTo()" style="float: right; " class="mb-2 mr-2 btn-icon btn btn-success">  <i class="fa-solid fa-plus"></i>
           Ajouter </button>
           <br>  <br>
       <table style="width: 100%; background-color: white;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
@@ -12,19 +20,19 @@
     <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 72.2px;" aria-label="Position: activate to sort column ascending">Type de contrat</th>
     <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 44.2px;" aria-label="Office: activate to sort column ascending">poste</th>
     <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 27.2px;" aria-label="Age: activate to sort column ascending">Date de debut</th>
-    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px ;" aria-label="Start date: activate to sort column ascending"> Salaire brut</th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px ;" aria-label="Salary: activate to sort column ascending"> Salaire brut</th>
     <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 16%;" aria-label="Salary: activate to sort column ascending">Action</th>
   </tr>
   </thead>
   <tbody>
   <tr role="row" class="odd" *ngFor="let contrat of contrats ">
-      <td tabindex="0" class="sorting_1">{{contrat?.nom}}</td>
+      <td tabindex="0" class="sorting_1">{{contrat?.employerResponseDTO?.nom}}</td>
       <td>{{contrat?.type_contrat}}</td>
       <td>{{contrat?.poste}}</td>
       <td>{{contrat?.date_embauche | date: 'dd/MM/yyyy' }}</td>
-      <td>{{contrat?.Salaire_brut }}</td>
-      <td >
-        <button  routerLink="/affich-employer" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
+      <td>{{contrat?.Salaire_brut}}</td>
+      <td>
+        <button  (click)="goToViewId(contrat)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
           <i class="fa-solid fa-eye"></i>
         </button>
         <button  routerLinkActive="router-link-active"  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
@@ -36,7 +44,7 @@
       </td>
   </tr>
 </tbody>
-  <tfoot  >
+  <!-- <tfoot  >
   <tr><th rowspan="1" colspan="1">Nom</th>
     <th rowspan="1" colspan="1">Type de contrat</th>
     <th rowspan="1" colspan="1">poste</th>
@@ -44,7 +52,7 @@
     <th rowspan="1" colspan="1">Salaire brut</th>
     <th rowspan="1" colspan="1">Action</th>
   </tr>
-  </tfoot>
+  </tfoot> -->
 </table>
 </div>
 </div>

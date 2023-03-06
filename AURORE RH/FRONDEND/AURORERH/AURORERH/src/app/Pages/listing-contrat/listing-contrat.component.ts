@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DELETE_CONTRATS, LIST_CONTRATS } from 'src/app/shared/_elements/api_constante';
 import { ContratResponseModel } from 'src/app/shared/_models/responses/contrat-response.model';
+import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
 import { ContratService } from 'src/app/shared/_services/contratService';
 import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
@@ -25,6 +26,7 @@ export class ListingContratComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContrat();
+
   }
 
   getContrat(){
@@ -69,7 +71,17 @@ export class ListingContratComponent implements OnInit {
   }
 
 
+  goTo(){
+    this.router.navigate(['/ajout-contrat'])
+  }
 
+  goTi(){
+    this.router.navigate(['/listing-contrat'])
+  }
+  recupId(employer: EmployerReponseModel){
+}
 
-
+goToViewId(contrat: ContratResponseModel){
+  this.router.navigate(['/affich-contrat/', contrat.id])
+}
 }

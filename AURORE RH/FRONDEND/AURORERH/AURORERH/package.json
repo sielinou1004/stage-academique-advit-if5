@@ -21,6 +21,7 @@
     "@angular/router": "~11.2.14",
     "@auth0/angular-jwt": "^3.0.1",
     "@metismenu/angular": "0.0.2",
+    "angular-breadcrumbs": "^0.5.3",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",

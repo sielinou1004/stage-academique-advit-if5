@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
+import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.component';
 import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer.component';
 import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
 
     {path: 'listing-contrat', component:ListingContratComponent},
     {path: 'ajout-contrat', component:AjoutContratComponent},
+    {path: 'affich-contrat/:id', component:AffichContratComponent},
   ]
 },
 

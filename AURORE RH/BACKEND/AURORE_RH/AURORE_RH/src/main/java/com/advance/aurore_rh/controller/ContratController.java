@@ -53,7 +53,7 @@ public class ContratController {
     }
 
 
-    @PostMapping("/create/")
+    @PostMapping("/create")
     @ApiOperation("creation d'un contrat ")
 
     public ResponseEntity<ApiResponse<ContratResponseDTO>> createcontrat(@RequestBody ContratRequestDTO contratRequestDTO){

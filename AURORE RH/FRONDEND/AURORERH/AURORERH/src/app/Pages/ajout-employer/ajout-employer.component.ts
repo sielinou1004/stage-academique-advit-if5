@@ -121,5 +121,7 @@ export class AjoutEmployerComponent implements OnInit {
 }
 
 
-
+goTi(){
+  this.router.navigate(['/listing-employer'])
+}
 }

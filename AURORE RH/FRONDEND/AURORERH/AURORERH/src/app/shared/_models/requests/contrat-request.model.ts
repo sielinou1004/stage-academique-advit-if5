@@ -28,5 +28,6 @@ export class ContratRequestModel{
 
     public id_Employer: number,
 
+
   ){}
 }

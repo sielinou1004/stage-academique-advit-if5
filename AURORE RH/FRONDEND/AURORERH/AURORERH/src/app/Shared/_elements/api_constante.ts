@@ -3,6 +3,7 @@
 import { environment } from 'src/environments/environment';
 
 export const SERVEUR = `${environment.apiUrl}`;
+
 export const EMPLOYERS = SERVEUR + 'employer';
 export const LIST_EMPLOYERS = EMPLOYERS + '/read';
 export const ADD_EMPLOYER = EMPLOYERS + '/create';

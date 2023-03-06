@@ -1,6 +1,16 @@
-<div class="main-card mb-3 card" style="height: 100%;">
+<div class="container-fluid">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a  >Employés</a></li>
+      <li class="breadcrumb-item"><a  style="color: blue;" (click)="goTi()" >Liste des employés </a></li>
+      <li class="breadcrumb-item"><a  style="color: blue;">Enregistrement </a></li>
+    </ol>
+  </nav>
+</div>
+<div class="main-card mb-3 card" style="height: 60rem;">
   <div class="card-body"  >
-    <div ><h1 class="card-title" style="font-size: 200%; color: rgb(81, 81, 230); " >Ajout d'un employé</h1></div>
+    <div ><h1 class="card-title" style="font-size: 200%; color: rgb(81, 81, 230); " >Enregistrement des informations  d'un employé</h1></div>
+
     <br>
     <h3 class="card-title">Informations Personnelles</h3>
       <form class="" [formGroup]="formEmployer">
@@ -8,7 +18,7 @@
               <div class="col-md-6">
                   <div class="position-relative form-group">
                     <label for="" class="">
-                      *Nom
+                      Nom <span style="color: red;">*</span>
                     </label>
                     <input name="" id="" placeholder="écrire le nom" type="" class="form-control" formControlName="nom"></div>
                     <span *ngIf=" (submitted || formEmployer.controls.nom.touched) && formEmployer.controls.nom.errors "   style="color:red">  le nom est requis  </span>
@@ -24,7 +34,7 @@
               <div class="col-md-2">
                 <div class="position-relative form-group">
                   <label  class="">
-                    *Matricule CNI
+                    Matricule CNI<span style="color: red;">*</span>
                   </label>
                   <input name="zip"  type="text" class="form-control" formControlName="matricule"></div>
                   <span *ngIf=" (submitted || formEmployer.controls.matricule.touched) && formEmployer.controls.matricule.errors "   style="color:red">  le matricule est requis   </span>
@@ -53,7 +63,7 @@
           <div class="col-md-6">
           <div class="position-relative form-group">
             <label for="phone" class="">
-              *Numéro
+              Numéro <span style="color: red;">*</span>
             </label>
             <input name="phone" id="phone" placeholder="69472..." type="tel" class="form-control" formControlName="numero">
           </div>
@@ -110,7 +120,7 @@
             <div class="col-md-6">
                 <div class="position-relative form-group">
                   <label for="" class="">
-               *Poste
+               Poste<span style="color: red;">*</span>
                   </label>
                   <input name="" id="" placeholder="" type="" class="form-control" formControlName="poste">
                   <span *ngIf=" (submitted || formEmployer.controls.poste.touched) && formEmployer.controls.poste.errors "   style="color:red">  le poste est requis   </span>
@@ -119,7 +129,7 @@
             <div class="col-md-6">
                 <div class="position-relative form-group">
                   <label for="examplePassword11" class="">
-                   *Type de contrat
+                   Type de contrat<span style="color: red;">*</span>
                   </label>
                   <input name="" id="" placeholder="" type="" class="form-control" formControlName="type_contrat">
                   <span *ngIf=" (submitted || formEmployer.controls.type_contrat.touched) && formEmployer.controls.type_contrat.errors "   style="color:red">  le type de contrat avec l'entreprise est requis est requis   </span>
@@ -131,7 +141,7 @@
           <div class="col-md-6">
               <div class="position-relative form-group">
                 <label for="" class="">
-             *Profession
+             Profession<span style="color: red;">*</span>
                 </label>
                 <input name="" id="" placeholder="" type="" class="form-control" formControlName="profession">
                 <span *ngIf=" (submitted || formEmployer.controls.profession.touched) && formEmployer.controls.profession.errors "   style="color:red">  la profession est requise   </span>
@@ -140,7 +150,7 @@
           <div class="col-md-6">
               <div class="position-relative form-group">
                 <label for="examplePassword11" class="">
-                 *ville d'exertion
+                 ville d'exertion<span style="color: red;">*</span>
                 </label>
                 <input name="address" id="" placeholder="" type="text" class="form-control" formControlName="ville_exertion">
                 <span *ngIf=" (submitted || formEmployer.controls.ville_exertion.touched) && formEmployer.controls.ville_exertion.errors "   style="color:red">  la ville d'exertion est requise   </span>
@@ -156,14 +166,23 @@
               <input type="date" class="form-control"  placeholder="" formControlName="date_debut"></div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="position-relative form-group">
             <label class="">
               Date de fin
             </label>
             <input type="date" class="form-control"  placeholder="" formControlName="date_fin"></div>
       </div>
+      <div class="col-md-3">
+        <div class="position-relative form-group">
+          <label class="">
+           photo
+          </label>
+          <input name="file" id="exampleFile" type="file" class="form-control" formControlName="photo">
+        </div>
     </div>
+    </div>
+    <br>
 
     <button style="height: 3rem; width: 15%; float: right;" (click)="addEmployer()  "class="btn btn-success mr-2 mb-2 block-page-btn-example-2">
     Enregistrement

@@ -55,7 +55,6 @@ public class Contrat extends AuditEntity {
     private String etat_civil;
 
     @OneToOne
-    @JoinColumn(name = "employer_id")
     private Employer employer;
 
     @ManyToOne
@@ -78,12 +77,6 @@ public class Contrat extends AuditEntity {
         private String etat_civil;
         private Employer employer;
         private TypeContrat typeContrat;
-        private Long version;
-        private LocalDateTime date_creation;
-        private LocalDateTime date_modif;
-        private String util_creation;
-        private String util_modif;
-        private Character forwarded;
 
         private ContratBuilder() {
         }
@@ -167,36 +160,6 @@ public class Contrat extends AuditEntity {
             return this;
         }
 
-        public ContratBuilder version(Long version) {
-            this.version = version;
-            return this;
-        }
-
-        public ContratBuilder date_creation(LocalDateTime date_creation) {
-            this.date_creation = date_creation;
-            return this;
-        }
-
-        public ContratBuilder date_modif(LocalDateTime date_modif) {
-            this.date_modif = date_modif;
-            return this;
-        }
-
-        public ContratBuilder util_creation(String util_creation) {
-            this.util_creation = util_creation;
-            return this;
-        }
-
-        public ContratBuilder util_modif(String util_modif) {
-            this.util_modif = util_modif;
-            return this;
-        }
-
-        public ContratBuilder forwarded(Character forwarded) {
-            this.forwarded = forwarded;
-            return this;
-        }
-
         public Contrat build() {
             Contrat contrat = new Contrat();
             contrat.setId_contrat(id_contrat);
@@ -214,12 +177,6 @@ public class Contrat extends AuditEntity {
             contrat.setEtat_civil(etat_civil);
             contrat.setEmployer(employer);
             contrat.setTypeContrat(typeContrat);
-            contrat.setVersion(version);
-            contrat.setDate_creation(date_creation);
-            contrat.setDate_modif(date_modif);
-            contrat.setUtil_creation(util_creation);
-            contrat.setUtil_modif(util_modif);
-            contrat.setForwarded(forwarded);
             return contrat;
         }
     }

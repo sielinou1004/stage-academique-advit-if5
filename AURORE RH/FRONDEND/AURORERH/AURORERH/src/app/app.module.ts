@@ -22,6 +22,7 @@ import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.co
 import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer.component';
 import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
 import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
+import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.component';
 
 
 
@@ -39,7 +40,9 @@ import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.compo
     AjoutEmployerComponent,
     AffichEmployerComponent,
     ListingContratComponent,
-    AjoutContratComponent
+    AjoutContratComponent,
+    AffichContratComponent,
+
 
 
 
@@ -53,6 +56,7 @@ import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.compo
     HttpClientModule,
     SharedModule,
     ToastrModule.forRoot(),
+    
 
 
   ],
