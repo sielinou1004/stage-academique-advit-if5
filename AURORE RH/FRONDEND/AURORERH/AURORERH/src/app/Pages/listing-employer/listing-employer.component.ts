@@ -6,7 +6,7 @@ import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import Swal from 'sweetalert2'
 import { AjoutEmployerComponent } from '../ajout-employer/ajout-employer.component';
-import {MatDialog} from '@angular/material/dialog';
+
 import { AffichEmployerComponent } from '../affich-employer/affich-employer.component';
 
 @Component({
@@ -25,7 +25,7 @@ export class ListingEmployerComponent implements OnInit {
     private notif: NotificationService,
     private router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+ 
 
   ) { }
 
@@ -88,7 +88,7 @@ export class ListingEmployerComponent implements OnInit {
   recupId(employer: EmployerReponseModel){
     this.router.navigate(['/ajout-employer/', employer.id])
   }
-  
+
 }
 
 

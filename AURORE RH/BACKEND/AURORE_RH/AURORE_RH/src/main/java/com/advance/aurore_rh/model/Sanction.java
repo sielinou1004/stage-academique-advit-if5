@@ -21,13 +21,15 @@ public class Sanction extends AuditEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_sanction;
 
     @Column(length = 50)
     private String nom;
 
     @Column(length = 50)
     private String type_sanction;
+
+    private String description;
 
     private Date debut_sanction;
 
@@ -38,23 +40,18 @@ public class Sanction extends AuditEntity{
     @JoinColumn(name = "typesaction_id")
     private TypeSanction typeSanction;
 
-    @ManyToMany(mappedBy = "sanctions")
-    private List<Employer> employer;
+    @ManyToOne
+    private Employer employer;
 
     public static final class SanctionBuilder {
-        private Long id;
+        private Long id_sanction;
         private String nom;
         private String type_sanction;
+        private String description;
         private Date debut_sanction;
         private Date fin_sanction;
         private TypeSanction typeSanction;
-        private List<Employer> employer;
-        private Long version;
-        private LocalDateTime date_creation;
-        private LocalDateTime date_modif;
-        private String util_creation;
-        private String util_modif;
-        private Character forwarded;
+        private Employer employer;
 
         private SanctionBuilder() {
         }
@@ -63,8 +60,8 @@ public class Sanction extends AuditEntity{
             return new SanctionBuilder();
         }
 
-        public SanctionBuilder id(Long id) {
-            this.id = id;
+        public SanctionBuilder id_sanction(Long id_sanction) {
+            this.id_sanction = id_sanction;
             return this;
         }
 
@@ -75,6 +72,11 @@ public class Sanction extends AuditEntity{
 
         public SanctionBuilder type_sanction(String type_sanction) {
             this.type_sanction = type_sanction;
+            return this;
+        }
+
+        public SanctionBuilder description(String description) {
+            this.description = description;
             return this;
         }
 
@@ -93,56 +95,21 @@ public class Sanction extends AuditEntity{
             return this;
         }
 
-        public SanctionBuilder employer(List<Employer> employer) {
+        public SanctionBuilder employer(Employer employer) {
             this.employer = employer;
-            return this;
-        }
-
-        public SanctionBuilder version(Long version) {
-            this.version = version;
-            return this;
-        }
-
-        public SanctionBuilder date_creation(LocalDateTime date_creation) {
-            this.date_creation = date_creation;
-            return this;
-        }
-
-        public SanctionBuilder date_modif(LocalDateTime date_modif) {
-            this.date_modif = date_modif;
-            return this;
-        }
-
-        public SanctionBuilder util_creation(String util_creation) {
-            this.util_creation = util_creation;
-            return this;
-        }
-
-        public SanctionBuilder util_modif(String util_modif) {
-            this.util_modif = util_modif;
-            return this;
-        }
-
-        public SanctionBuilder forwarded(Character forwarded) {
-            this.forwarded = forwarded;
             return this;
         }
 
         public Sanction build() {
             Sanction sanction = new Sanction();
-            sanction.setId(id);
+            sanction.setId_sanction(id_sanction);
             sanction.setNom(nom);
             sanction.setType_sanction(type_sanction);
+            sanction.setDescription(description);
             sanction.setDebut_sanction(debut_sanction);
             sanction.setFin_sanction(fin_sanction);
             sanction.setTypeSanction(typeSanction);
             sanction.setEmployer(employer);
-            sanction.setVersion(version);
-            sanction.setDate_creation(date_creation);
-            sanction.setDate_modif(date_modif);
-            sanction.setUtil_creation(util_creation);
-            sanction.setUtil_modif(util_modif);
-            sanction.setForwarded(forwarded);
             return sanction;
         }
     }

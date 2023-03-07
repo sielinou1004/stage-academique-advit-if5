@@ -48,7 +48,7 @@ public class SanctionController {
     }
 
 
-    @PostMapping("/create/")
+    @PostMapping("/create")
     @ApiOperation("creation d'une sanction")
 
     public ResponseEntity<ApiResponse<SanctionResponseDTO>> creatsanct(@RequestBody SanctionRequetDTO sanctionRequetDTO){
@@ -59,7 +59,7 @@ public class SanctionController {
                 .build());
     }
 
-    @GetMapping("/read/")
+    @GetMapping("/read")
     @ApiOperation("lecture de toute les sanctions")
 
     public ResponseEntity<ApiResponse<List< SanctionResponseDTO>>> getAllsanct(){

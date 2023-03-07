@@ -47,8 +47,8 @@ public class Conger extends AuditEntity {
     @JoinColumn(name = "typeconger_id")
     private TypeConger typeConger;
 
-    @ManyToMany(mappedBy = "congers")
-    private List<Employer> employers;
+    @ManyToOne
+    private Employer employers;
 
 
     public static final class CongerBuilder {
@@ -62,7 +62,7 @@ public class Conger extends AuditEntity {
         private Date etablissement_conger;
         private String Description;
         private TypeConger typeConger;
-        private List<Employer> employers;
+        private Employer employers;
 
         private CongerBuilder() {
         }
@@ -121,7 +121,7 @@ public class Conger extends AuditEntity {
             return this;
         }
 
-        public CongerBuilder employers(List<Employer> employers) {
+        public CongerBuilder employers(Employer employers) {
             this.employers = employers;
             return this;
         }

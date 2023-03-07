@@ -5,7 +5,6 @@ import { ContratResponseModel } from 'src/app/shared/_models/responses/contrat-r
 import { ContratService } from 'src/app/shared/_services/contratService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import Swal from 'sweetalert2';
-import {MatDialog} from '@angular/material/dialog';
 import { AffichContratComponent } from '../affich-contrat/affich-contrat.component';
 
 
@@ -25,8 +24,6 @@ export class ListingContratComponent implements OnInit {
     private notif: NotificationService,
     private router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog
-
   ) { }
 
   ngOnInit(): void {
@@ -91,13 +88,4 @@ recupId(contrat: ContratResponseModel){
   this.router.navigate(['/ajout-contrat/', contrat.id])
 }
 
-
-openDialog() {
-  const dialogRef = this.dialog.open(AffichContratComponent);
-
-  dialogRef.afterClosed().subscribe((result) => {
-    console.log(`Dialog result: ${result}`);
-  });
- 
-}
 }

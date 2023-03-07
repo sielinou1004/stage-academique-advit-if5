@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { ActivatedRoute } from '@angular/router';
 import { READBYID_CONTRATS } from 'src/app/shared/_elements/api_constante';
 import { ContratService } from 'src/app/shared/_services/contratService';

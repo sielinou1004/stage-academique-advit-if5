@@ -23,7 +23,8 @@ import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer
 import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
 import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
 import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.component';
-import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanction.component';
+
 
 
 
@@ -42,6 +43,7 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
     ListingContratComponent,
     AjoutContratComponent,
     AffichContratComponent,
+    ListingSanctionComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,13 +54,13 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
     HttpClientModule,
     SharedModule,
     ToastrModule.forRoot(),
-    MatDialogModule
+ 
   ],
   providers: [
     UserGuardService,
     authInterceptorProviders,
     AjoutEmployerComponent,
-  
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

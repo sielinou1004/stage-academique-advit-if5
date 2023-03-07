@@ -14,13 +14,18 @@ import java.util.stream.Collectors;
 @Builder
 public class SanctionResponseDTO {
 
-    public Long id;
+    private Long id;
 
-    public String type_sanction;
+    private String nom;
 
-    public Date debut_sanction;
+    private String type_sanction;
 
-    public Date fin_sanction;
+    private Date debut_sanction;
+
+    private Date fin_sanction;
+
+    private String description;
+
     private EmployerResponseDTO employerResponseDTO;
 
     public  static SanctionResponseDTO buildFromEntity(Sanction entity){

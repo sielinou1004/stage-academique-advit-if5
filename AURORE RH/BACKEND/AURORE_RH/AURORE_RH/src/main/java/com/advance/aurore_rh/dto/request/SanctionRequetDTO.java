@@ -25,6 +25,8 @@ public class SanctionRequetDTO {
 
     private Date fin_sanction;
 
+    private String description;
+
     private Long id_Employer;
 
     public static Sanction buildFromDto(SanctionRequetDTO dto, Employer employer){
@@ -33,10 +35,7 @@ public class SanctionRequetDTO {
                 .fin_sanction(dto.getFin_sanction())
                 .debut_sanction(dto.getDebut_sanction())
                 .type_sanction(dto.getType_sanction())
-                .date_creation(LocalDateTime.now())
-                .employer((List<Employer>) employer)
-
-
+                .employer((Employer) employer)
                 .build();
     }
 }

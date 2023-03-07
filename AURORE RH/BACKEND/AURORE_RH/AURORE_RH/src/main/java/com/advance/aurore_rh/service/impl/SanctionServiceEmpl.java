@@ -28,10 +28,8 @@ public class SanctionServiceEmpl implements SanctionServiceInter {
     public SanctionResponseDTO creatsanct(SanctionRequetDTO sanctionRequetDTO) {
         Employer employer = employerRepository.findById(sanctionRequetDTO.getId_Employer())
         .orElseThrow(() -> new RuntimeException("Aucun employer trouvé avec cette id"));
-
         Sanction s = sanctionRequetDTO.buildFromDto(sanctionRequetDTO, employer);
         return SanctionResponseDTO.buildFromEntity(sanctionRepository.save(s));
-
     }
 
     @Override
@@ -53,6 +51,7 @@ public class SanctionServiceEmpl implements SanctionServiceInter {
                     s.setDebut_sanction(sanctionRequetDTO.getDebut_sanction());
                     s.setFin_sanction(sanctionRequetDTO.getFin_sanction());
                     s.setNom(sanctionRequetDTO.getNom());
+                    s.setDescription(sanctionRequetDTO.getDescription());
                     s.setType_sanction(sanctionRequetDTO.getType_sanction());
                     return sanctionRepository.save(s);
 

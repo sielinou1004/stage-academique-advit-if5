@@ -102,20 +102,10 @@ public class Employer extends AuditEntity {
     )
     private List<NoteProfessionel> noteProfessionels;
 
-    @ManyToMany
-    @JoinTable(
-            name = "LNCK_EMPLOYER_CONGER",
-            joinColumns = @JoinColumn(name = "employer_id"),
-            inverseJoinColumns = @JoinColumn(name = "conger_id")
-    )
+    @OneToMany(mappedBy = "employers")
     private List<Conger> congers;
 
-    @ManyToMany
-    @JoinTable(
-            name = "LNK_EMPLOYER_SANCTION",
-            joinColumns = @JoinColumn(name = "employer_id"),
-            inverseJoinColumns = @JoinColumn(name = "sanction_id")
-    )
+    @OneToMany(mappedBy = "employer")
     private List<Sanction> sanctions;
 
     public static final class EmployerBuilder {

@@ -8,6 +8,7 @@ import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.compo
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
 import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
 import { ListingEmployerComponent } from './Pages/listing-employer/listing-employer.component';
+import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanction.component';
 import { LoginComponent } from './session/login/login.component';
 import { UserGuardService } from './shared/_helpers/user-guard.service';
 
@@ -26,6 +27,8 @@ const routes: Routes = [
     {path: 'ajout-contrat', component:AjoutContratComponent},
     {path: 'affich-contrat/:id', component:AffichContratComponent},
     {path: 'ajout-contrat/:id', component:AjoutContratComponent},
+
+    {path: 'listing-sanction', component:ListingSanctionComponent},
   ]
 },
 
