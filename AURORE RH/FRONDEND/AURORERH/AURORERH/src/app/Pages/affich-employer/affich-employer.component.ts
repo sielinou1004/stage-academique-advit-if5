@@ -32,4 +32,6 @@ export class AffichEmployerComponent implements OnInit {
       console.log( 'test', this.id)
     });
   }
+
+  
 }

@@ -25,10 +25,9 @@ const routes: Routes = [
     {path: 'listing-contrat', component:ListingContratComponent},
     {path: 'ajout-contrat', component:AjoutContratComponent},
     {path: 'affich-contrat/:id', component:AffichContratComponent},
+    {path: 'ajout-contrat/:id', component:AjoutContratComponent},
   ]
 },
-
-
 
 ];
 

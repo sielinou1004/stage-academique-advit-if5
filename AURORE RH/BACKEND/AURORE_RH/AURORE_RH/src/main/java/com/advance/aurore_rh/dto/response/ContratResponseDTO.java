@@ -60,8 +60,6 @@ public class ContratResponseDTO {
                 .debut_periode_essaie(entity.getDebut_periode_essaie())
                 .fin_periode_essaie(entity.getDate_embauche())
                 .employerResponseDTO(EmployerResponseDTO.buildFromEntity(entity.getEmployer()))
-
-
                 .build();
     }
 

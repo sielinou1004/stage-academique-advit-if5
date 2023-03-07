@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADD_CONTRATS, LIST_EMPLOYERS } from 'src/app/shared/_elements/api_constante';
+import { ADD_CONTRATS, LIST_EMPLOYERS, READBYID_CONTRATS } from 'src/app/shared/_elements/api_constante';
 import { ContratRequestModel } from 'src/app/shared/_models/requests/contrat-request.model';
 import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
 import { ContratService } from 'src/app/shared/_services/contratService';
@@ -21,6 +21,7 @@ export class AjoutContratComponent implements OnInit {
   public isLoggedIn = false;
   public isLoginFailed = false;
   public employers: EmployerReponseModel[] = [];
+  id: any;
 
 
 
@@ -35,9 +36,22 @@ export class AjoutContratComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormContrat(null);
-    this.getEmployer()
+    this.getEmployer();
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    this.editContrat(this.id);
 
   }
+
+
+editContrat(id:number){
+  this.contratService.get(`${READBYID_CONTRATS}/${id}`)
+  .then((response:any)=>{
+    console.log('response', response)
+    this.initFormContrat(response.data)
+  });
+}
+
 
 public initFormContrat(data: any){
   this.formContrat = this.fb.group({
@@ -48,10 +62,10 @@ public initFormContrat(data: any){
     periode_essaie:[data ? data.periode_essaie: '', Validators.required],
     debut_periode_essaie:[data ? data.debut_periode_essaie: '', Validators.required],
     fin_periode_essaie:[data ? data.fin_periode_essaie: '', Validators.required],
-    type_contrat:[data ? data.type_contrat: '', Validators.required],
+    type_contrat:[data ? data.type_contrat: ''],
     poste:[data ? data.poste: '', Validators.required],
     lieu_travail:[data ? data.lieu_travail: '', Validators.required],
-    Salaire_brut:[data ? data.Salaire_brut: '', Validators.required],
+    salaire_brut:[data ? data.salaire_brut: '', Validators.required],
     etat_civil:[data ? data.etat_civil: ''],
     id_Employer:[data ? data.id_Employer: '', Validators.required],
     id:[data ? data.id: null ],
@@ -113,7 +127,6 @@ getEmployer(){
 goTi(){
   this.router.navigate(['/listing-contrat'])
 }
-
 
 
 }

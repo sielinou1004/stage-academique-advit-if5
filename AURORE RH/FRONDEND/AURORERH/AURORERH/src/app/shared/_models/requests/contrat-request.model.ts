@@ -22,7 +22,7 @@ export class ContratRequestModel{
 
     public lieu_travail: String,
 
-    public Salaire_brut: String,
+    public salaire_brut: String,
 
     public etat_civil: String,
 

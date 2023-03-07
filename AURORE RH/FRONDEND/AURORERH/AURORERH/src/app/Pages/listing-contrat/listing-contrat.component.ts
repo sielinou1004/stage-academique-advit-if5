@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DELETE_CONTRATS, LIST_CONTRATS } from 'src/app/shared/_elements/api_constante';
 import { ContratResponseModel } from 'src/app/shared/_models/responses/contrat-response.model';
-import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
 import { ContratService } from 'src/app/shared/_services/contratService';
-import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import Swal from 'sweetalert2';
+import {MatDialog} from '@angular/material/dialog';
+import { AffichContratComponent } from '../affich-contrat/affich-contrat.component';
+
+
 
 @Component({
   selector: 'app-listing-contrat',
@@ -17,11 +19,14 @@ export class ListingContratComponent implements OnInit {
 
   public contrats: ContratResponseModel[] = [];
 
+
   constructor(
     private contratService: ContratService,
     private notif: NotificationService,
     private router: Router,
     private route: ActivatedRoute,
+    public dialog: MatDialog
+
   ) { }
 
   ngOnInit(): void {
@@ -70,7 +75,6 @@ export class ListingContratComponent implements OnInit {
     })
   }
 
-
   goTo(){
     this.router.navigate(['/ajout-contrat'])
   }
@@ -78,10 +82,22 @@ export class ListingContratComponent implements OnInit {
   goTi(){
     this.router.navigate(['/listing-contrat'])
   }
-  recupId(employer: EmployerReponseModel){
-}
 
 goToViewId(contrat: ContratResponseModel){
   this.router.navigate(['/affich-contrat/', contrat.id])
+}
+
+recupId(contrat: ContratResponseModel){
+  this.router.navigate(['/ajout-contrat/', contrat.id])
+}
+
+
+openDialog() {
+  const dialogRef = this.dialog.open(AffichContratComponent);
+
+  dialogRef.afterClosed().subscribe((result) => {
+    console.log(`Dialog result: ${result}`);
+  });
+ 
 }
 }

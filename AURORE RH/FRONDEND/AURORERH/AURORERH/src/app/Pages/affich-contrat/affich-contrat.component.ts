@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { READBYID_CONTRATS } from 'src/app/shared/_elements/api_constante';
 import { ContratService } from 'src/app/shared/_services/contratService';
@@ -14,6 +15,8 @@ export class AffichContratComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private contartService: ContratService,
+
+
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +33,6 @@ export class AffichContratComponent implements OnInit {
       console.log( 'test', this.id)
     });
   }
+
 
 }
