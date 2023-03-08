@@ -33,5 +33,7 @@ export class AffichEmployerComponent implements OnInit {
     });
   }
 
-  
+  goTi(){
+    this.router.navigate(['/listing-employer'])
+  }
 }

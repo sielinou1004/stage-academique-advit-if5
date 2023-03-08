@@ -1,6 +1,7 @@
 package com.advance.aurore_rh.dto.request;
 
 import com.advance.aurore_rh.model.Conger;
+import com.advance.aurore_rh.model.Employer;
 import lombok.Builder;
 import lombok.Data;
 
@@ -27,12 +28,22 @@ public class CongerRequestDTO {
 
     private Date etablissement_conger;
 
-    public static Conger buildFromDto(CongerRequestDTO dto){
+    private boolean validation;
+
+    private String description;
+
+    private Long id_Employer;
+
+    public static Conger buildFromDto(CongerRequestDTO dto, Employer employer){
         return Conger.CongerBuilder.aConger()
                 .prenom(dto.getPrenom())
                 .nom(dto.getNom())
                 .etablissement_conger(dto.getEtablissement_conger())
-
+                .Description(dto.getDescription())
+                .date_debut(dto.getDate_debut())
+                .date_fin(dto.getDate_fin())
+                .date_reprise(dto.getDate_reprise())
+                .employer(employer)
                 .build();
     }
 }

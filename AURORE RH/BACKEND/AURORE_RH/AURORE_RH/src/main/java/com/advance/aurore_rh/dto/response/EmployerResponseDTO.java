@@ -76,9 +76,7 @@ public class EmployerResponseDTO {
     }
 
     public static List <EmployerResponseDTO> builFromEntityList(List <Employer> employerList){
-
         return employerList.stream().map(EmployerResponseDTO::buildFromEntity).collect(Collectors.toList());
-
     }
 
 

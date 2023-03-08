@@ -69,9 +69,7 @@ public class EmployerRequestDTO {
                     .date_fin(dto.getDate_fin())
                     .statut_matrimoniale(dto.getStatut_matrimoniale())
                     .profession(dto.getProfession())
-
                     .build();
         }
-
 
 }

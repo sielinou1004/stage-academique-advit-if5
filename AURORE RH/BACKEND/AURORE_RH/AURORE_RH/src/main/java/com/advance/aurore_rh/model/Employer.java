@@ -30,7 +30,7 @@ public class Employer extends AuditEntity {
     @Column(length = 50)
     private String prenom;
 
-    @Column(length = 50)
+
     private String photo;
 
     private Date date_naissance;
@@ -102,7 +102,7 @@ public class Employer extends AuditEntity {
     )
     private List<NoteProfessionel> noteProfessionels;
 
-    @OneToMany(mappedBy = "employers")
+    @OneToMany(mappedBy = "employer")
     private List<Conger> congers;
 
     @OneToMany(mappedBy = "employer")

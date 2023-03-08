@@ -5,6 +5,9 @@ import { SanctionResponseModel } from 'src/app/shared/_models/responses/sanction
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import { SanctionService } from 'src/app/shared/_services/sanctionService';
 import Swal from 'sweetalert2';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalSanctionComponent } from '../modal-sanction/modal-sanction.component';
+
 
 @Component({
   selector: 'app-listing-sanction',
@@ -19,6 +22,7 @@ export class ListingSanctionComponent implements OnInit {
     private notif: NotificationService,
     private router: Router,
     private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +66,13 @@ export class ListingSanctionComponent implements OnInit {
           'error'
         )}
     })
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalSanctionComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

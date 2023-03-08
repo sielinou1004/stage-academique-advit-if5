@@ -26,8 +26,6 @@ public class ContratServiceEmpl implements ContratServiceInter {
     @Autowired
     EmployerRepository employerRepository;
 
-
-
     @Override
     public ContratResponseDTO createcontrat(ContratRequestDTO contratRequestDTO) {
         Employer employer = employerRepository.findById(contratRequestDTO.getId_Employer())

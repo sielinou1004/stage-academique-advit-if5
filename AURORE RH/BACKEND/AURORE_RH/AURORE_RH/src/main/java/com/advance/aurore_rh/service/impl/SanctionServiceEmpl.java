@@ -34,13 +34,13 @@ public class SanctionServiceEmpl implements SanctionServiceInter {
 
     @Override
     public List<SanctionResponseDTO> getAllsanct() {
-        return SanctionResponseDTO.buildFromEntity(sanctionRepository.findAll());
+        return SanctionResponseDTO.buildFromEntityList(sanctionRepository.findAll());
     }
 
     @Override
     public SanctionResponseDTO getSanctById(Long id) {
-        return null;
-//        return SanctionResponseDTO.buildFromEntity(sanctionRepository.findById(id))
+       return SanctionResponseDTO.buildFromEntity(sanctionRepository.findById(id)
+               .orElseThrow(()->new RuntimeException("Aucune santion trouvé")));
 
     }
 

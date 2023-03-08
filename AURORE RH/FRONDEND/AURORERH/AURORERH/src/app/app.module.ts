@@ -24,7 +24,8 @@ import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat
 import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
 import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.component';
 import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanction.component';
-
+import { ModalSanctionComponent } from './Pages/modal-sanction/modal-sanction.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -44,6 +45,7 @@ import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanct
     AjoutContratComponent,
     AffichContratComponent,
     ListingSanctionComponent,
+    ModalSanctionComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,9 @@ import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanct
     HttpClientModule,
     SharedModule,
     ToastrModule.forRoot(),
- 
+    MatDialogModule
+
+
   ],
   providers: [
     UserGuardService,

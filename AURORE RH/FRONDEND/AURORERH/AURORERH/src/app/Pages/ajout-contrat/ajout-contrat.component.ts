@@ -69,7 +69,6 @@ public initFormContrat(data: any){
     etat_civil:[data ? data.etat_civil: ''],
     id_Employer:[data ? data.id_Employer: ''],
     id:[data ? data.id: null ],
-
   })
 }
 
@@ -96,7 +95,7 @@ get f() { return this.formContrat.controls; }
       this.f.type_contrat.value,
       this.f.poste.value,
       this.f.lieu_travail.value,
-      this.f.Salaire_brut.value,
+      this.f.salaire_brut.value,
       this.f.etat_civil.value,
       this.f.id_Employer.value
       )

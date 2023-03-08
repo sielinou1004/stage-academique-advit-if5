@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -23,9 +26,15 @@ public class CongerResponseDTO {
 
     private String type_conger;
 
+    private boolean validation;
+
+    private String description;
+
     private Date date_reprise;
 
     private Date etablissement_conger;
+
+    private EmployerResponseDTO employerResponseDTO;
 
         public static CongerResponseDTO buildFromEntity(Conger entity){
             return  CongerResponseDTO.builder()
@@ -33,7 +42,19 @@ public class CongerResponseDTO {
                     .prenom(entity.getPrenom())
                     .nom(entity.getNom())
                     .etablissement_conger(entity.getEtablissement_conger())
+                    .date_debut(entity.getDate_debut())
+                    .date_fin(entity.getDate_fin())
+                    .date_reprise(entity.getDate_reprise())
+                    .description(entity.getDescription())
+                    .employerResponseDTO(EmployerResponseDTO.buildFromEntity((entity.getEmployer())))
                     .build();
         }
 
+    public static List<CongerResponseDTO> buildFromEntity(List<Conger> congerList){
+        return congerList.stream().map(CongerResponseDTO::buildFromEntity).collect(Collectors.toList());
+    }
+
+    public static CongerResponseDTO buildFromEntity(Optional<Conger> byId) {
+            return byId.map(CongerResponseDTO::buildFromEntity).get();
+    }
 }

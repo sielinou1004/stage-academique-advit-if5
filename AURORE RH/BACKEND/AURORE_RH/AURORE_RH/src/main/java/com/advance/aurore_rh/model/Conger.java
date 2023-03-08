@@ -38,17 +38,18 @@ public class Conger extends AuditEntity {
 
     private Date date_reprise;
 
+    private boolean validation;
+
     private Date etablissement_conger;
 
-    @Column(length = 50)
-    private String Description;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "typeconger_id")
     private TypeConger typeConger;
 
     @ManyToOne
-    private Employer employers;
+    private Employer employer;
 
 
     public static final class CongerBuilder {
@@ -59,10 +60,11 @@ public class Conger extends AuditEntity {
         private Date date_fin;
         private String type_conger;
         private Date date_reprise;
+        private boolean validation;
         private Date etablissement_conger;
         private String Description;
         private TypeConger typeConger;
-        private Employer employers;
+        private Employer employer;
 
         private CongerBuilder() {
         }
@@ -106,6 +108,11 @@ public class Conger extends AuditEntity {
             return this;
         }
 
+        public CongerBuilder validation(boolean validation) {
+            this.validation = validation;
+            return this;
+        }
+
         public CongerBuilder etablissement_conger(Date etablissement_conger) {
             this.etablissement_conger = etablissement_conger;
             return this;
@@ -121,8 +128,8 @@ public class Conger extends AuditEntity {
             return this;
         }
 
-        public CongerBuilder employers(Employer employers) {
-            this.employers = employers;
+        public CongerBuilder employer(Employer employer) {
+            this.employer = employer;
             return this;
         }
 
@@ -135,10 +142,11 @@ public class Conger extends AuditEntity {
             conger.setDate_fin(date_fin);
             conger.setType_conger(type_conger);
             conger.setDate_reprise(date_reprise);
+            conger.setValidation(validation);
             conger.setEtablissement_conger(etablissement_conger);
             conger.setDescription(Description);
             conger.setTypeConger(typeConger);
-            conger.setEmployers(employers);
+            conger.setEmployer(employer);
             return conger;
         }
     }

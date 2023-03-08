@@ -2,6 +2,7 @@ package com.advance.aurore_rh.controller;
 
 import com.advance.aurore_rh.dto.request.SanctionRequetDTO;
 import com.advance.aurore_rh.dto.response.ApiResponse;
+import com.advance.aurore_rh.dto.response.CongerResponseDTO;
 import com.advance.aurore_rh.dto.response.SanctionResponseDTO;
 import com.advance.aurore_rh.service.inter.SanctionServiceInter;
 import io.swagger.annotations.Api;
@@ -70,6 +71,17 @@ public class SanctionController {
                 .build());
     }
 
+
+    @GetMapping("/read/{id}")
+    @ApiOperation("lecture de toute les sanctions")
+    public ResponseEntity<ApiResponse<SanctionResponseDTO>> getSanctById(@PathVariable Long id ){
+        return ResponseEntity.ok(ApiResponse.<SanctionResponseDTO>builder()
+                .code(200)
+                .sucsess(true)
+                .message("operation efectuée")
+                .data(sanctionServiceInter.getSanctById(id))
+                .build());
+    }
 
 
 }

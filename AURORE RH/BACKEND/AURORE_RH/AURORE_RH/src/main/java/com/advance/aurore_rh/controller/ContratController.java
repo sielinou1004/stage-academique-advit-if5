@@ -22,8 +22,6 @@ public class ContratController {
 
     @Autowired
     private final ContratServiceInter contratServiceInter;
-
-
     public ContratController(ContratServiceInter contratServiceInter) {
         this.contratServiceInter = contratServiceInter;
     }
@@ -43,7 +41,6 @@ public class ContratController {
 
     @PutMapping("/update/{id}/")
     @ApiOperation("modification d'un contrat")
-
     public ResponseEntity<ApiResponse<ContratResponseDTO>> updateContr(@RequestBody ContratRequestDTO contratRequestDTO){
         return ResponseEntity.ok(ApiResponse.<ContratResponseDTO>builder()
                 .sucsess(true)
@@ -55,7 +52,6 @@ public class ContratController {
 
     @PostMapping("/create")
     @ApiOperation("creation d'un contrat ")
-
     public ResponseEntity<ApiResponse<ContratResponseDTO>> createcontrat(@RequestBody ContratRequestDTO contratRequestDTO){
         return ResponseEntity.ok(ApiResponse.<ContratResponseDTO>builder()
                 .sucsess(true)
@@ -66,7 +62,6 @@ public class ContratController {
 
     @GetMapping("/read")
     @ApiOperation("Api de lecture de tout les contrats")
-
     public ResponseEntity<ApiResponse <List<ContratResponseDTO>>> getAllcontr(){
         return ResponseEntity.ok(ApiResponse.<List<ContratResponseDTO>>builder()
                 .message("listing reuissi")
@@ -75,10 +70,8 @@ public class ContratController {
                 .build());
     }
 
-
     @GetMapping("/read/{id}")
     @ApiOperation("Api de lecture d'un contrat par un id")
-
     public ResponseEntity<ApiResponse<ContratResponseDTO>> getcontrById(@PathVariable Long id){
         return ResponseEntity.ok(ApiResponse.<ContratResponseDTO>builder()
                 .sucsess(true)

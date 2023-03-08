@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <nav aria-label="breadcrumb">
+<div class="container-fluid" >
+  <nav aria-label="breadcrumb" style="margin-right: 2rem; width: 91%;">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a  >Employés</a></li>
       <li class="breadcrumb-item"><a  style="color: blue;" (click)="goTi()" >Liste des employés </a></li>
@@ -46,7 +46,7 @@
               <label for="exampleAddress" class="">
                 Addresse
               </label>
-              <input name="address" id="exampleAddress" placeholder="ex: Douala" type="text" class="form-control" formControlName="adresse">
+              <input name="address" id="exampleAddress" placeholder="" type="text" class="form-control" formControlName="adresse">
 
             </div>
             </div>
@@ -63,9 +63,9 @@
           <div class="col-md-6">
           <div class="position-relative form-group">
             <label for="phone" class="">
-              Numéro <span style="color: red;">*</span>
+              Numéro
             </label>
-            <input name="phone" id="phone" placeholder="69472..." type="tel" class="form-control" formControlName="numero">
+            <input name="phone" id="phone" placeholder="" type="tel" class="form-control" formControlName="numero">
           </div>
           </div>
           <div class="col-md-6">
@@ -73,7 +73,15 @@
                 <label for="" class="">
                   Sexe
                 </label>
-                <input name="" id="" placeholder="" type="text" class="form-control" formControlName="sexe"></div>
+                <select name="select" placeholder=""  id="exampleSelect" type="text" class="form-control" formControlName="sexe" style="width: 100%; height: 2.4rem; border-color: rgb(218, 215, 215); border-radius: 5px;">
+                  <option value=""></option>
+                  <option value="M">M</option>
+                  <option value="F">F</option>
+                  <option value="Autres">Autres</option>
+
+                </select>
+
+              </div>
           </div>
       </div>
 
@@ -83,7 +91,7 @@
                   <label class="">
                     Date de naissance
                   </label>
-                  <input type="date" class="form-control" data-toggle="datepicker-year" placeholder="ex:20/02/1999" formControlName="date_naissance"></div>
+                  <input type="date" class="form-control" data-toggle="datepicker-year" placeholder="" formControlName="date_naissance"></div>
             </div>
 
             <div class="col-md-6">
@@ -91,7 +99,7 @@
                   <label for="exampleState" class="">
                     Lieu de naissance
                   </label>
-                  <input name="state" id="exampleState" type="text" class="form-control" placeholder="Mbouda" formControlName="lieu_naissance"></div>
+                  <input name="state" id="exampleState" type="text" class="form-control" placeholder="" formControlName="lieu_naissance"></div>
             </div>
         </div>
 
@@ -108,7 +116,7 @@
                   <label for="examplePassword11" class="">
                     Nombre d'enfant
                   </label>
-                  <input name="" id="" placeholder="ex:2" type="number" class="form-control" formControlName="nbr_enfant">
+                  <input name="" id="" placeholder="" type="number" class="form-control" formControlName="nbr_enfant">
                 </div>
             </div>
         </div>
@@ -131,7 +139,13 @@
                   <label for="examplePassword11" class="">
                    Type de contrat<span style="color: red;">*</span>
                   </label>
-                  <input name="" id="" placeholder="" type="" class="form-control" formControlName="type_contrat">
+                  <select name="select" placeholder=""  id="exampleSelect" type="text" class="" formControlName="type_contrat" style="width: 100%; height: 2.4rem; border-color: rgb(218, 215, 215); border-radius: 5px;">
+                    <option value=""></option>
+                    <option value="CDI">CDI</option>
+                    <option value="CDD">CDD</option>
+                    <option value="CTT">CTT</option>
+                    <option value="ALTERNANCE">ALTERNANCE</option>
+                  </select>
                   <span *ngIf=" (submitted || formEmployer.controls.type_contrat.touched) && formEmployer.controls.type_contrat.errors "   style="color:red">  le type de contrat avec l'entreprise est requis est requis   </span>
                 </div>
             </div>

@@ -11,7 +11,7 @@
   </div>
   <hr>
     <div class="col-sm-12">
-        <button  style="float: right;  " class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+        <button mat-button (click)="openDialog()" style="float: right;  " class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
           Ajouter </button>
           <br>  <br>
           <div >
@@ -22,7 +22,6 @@
                 <option value="50">50</option>
                 <option value="100">100</option>
               </select> entrées</label>
-
               <label style="float: right;"> Recherche:
                 <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example">
               </label>

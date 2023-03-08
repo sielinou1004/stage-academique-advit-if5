@@ -26,7 +26,6 @@ public class EmployerFormation extends AuditEntity {
 
     private Date fin_form;
 
-
     @Column(length = 100)
     private String description;
 
@@ -34,11 +33,8 @@ public class EmployerFormation extends AuditEntity {
     @JoinColumn(name = "employer_id")
     private Employer employer;
 
-
     @ManyToOne
     @JoinColumn(name = "formation_id")
     private Formation formation;
-
-
 
 }
