@@ -54,7 +54,8 @@ public class Contrat extends AuditEntity {
     @Column(length = 50)
     private String etat_civil;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name  = "employer_id")
     private Employer employer;
 
     @ManyToOne

@@ -79,9 +79,6 @@ public class Employer extends AuditEntity {
     @JoinColumn(name = "user_id" )
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "contrat_id" )
-    private Contrat contrat;
 
 //    @ManyToMany
 //    @JoinTable(
@@ -129,7 +126,6 @@ public class Employer extends AuditEntity {
         private String profession;
         private String poste;
         private User user;
-        private Contrat contrat;
         private List<EmployerFormation> employerFormations;
         private List<NoteProfessionel> noteProfessionels;
         private List<Conger> congers;
@@ -242,11 +238,6 @@ public class Employer extends AuditEntity {
             return this;
         }
 
-        public EmployerBuilder contrat(Contrat contrat) {
-            this.contrat = contrat;
-            return this;
-        }
-
         public EmployerBuilder employerFormations(List<EmployerFormation> employerFormations) {
             this.employerFormations = employerFormations;
             return this;
@@ -289,7 +280,6 @@ public class Employer extends AuditEntity {
             employer.setProfession(profession);
             employer.setPoste(poste);
             employer.setUser(user);
-            employer.setContrat(contrat);
             employer.setEmployerFormations(employerFormations);
             employer.setNoteProfessionels(noteProfessionels);
             employer.setCongers(congers);

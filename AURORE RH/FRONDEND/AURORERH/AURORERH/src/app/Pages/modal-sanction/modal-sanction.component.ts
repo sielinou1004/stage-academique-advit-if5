@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADD_SANCTIONS } from 'src/app/shared/_elements/api_constante';
+import { ADD_SANCTIONS, LIST_EMPLOYERS } from 'src/app/shared/_elements/api_constante';
 import { SanctionRequestModel } from 'src/app/shared/_models/requests/sanction-request.model';
 import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
+import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import { SanctionService } from 'src/app/shared/_services/sanctionService';
 
@@ -30,17 +32,20 @@ export class ModalSanctionComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private notif: NotificationService,
+    private employerService: EmployerService,
+    private dialogRef: MatDialogRef<ModalSanctionComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any
   ) {}
 
   ngOnInit(): void {
     this.initFormSanction(null)
+    this.getEmployer();
   }
 
   public initFormSanction(data: any){
     this.formSanction =this.fb.group({
     nom: [data ? data.nom :  ''],
     type_sanction:[data ? data.type_sanction: ''],
-    lieu_recrutememnt:[data ? data.lieu_recrutememnt: ''],
     debut_sanction:[data ? data.debut_sanction: ''],
     fin_sanction:[data ? data.fin_periode_essaie: ''],
     description:[data ? data.description: ''],
@@ -51,7 +56,7 @@ export class ModalSanctionComponent implements OnInit {
 
   get f() { return this.formSanction.controls; }
 
-  addEmployer(){
+  addSanction(){
     this.submitted = true;
     this.isLoading = true;
     if (this.formSanction.invalid) {
@@ -64,11 +69,11 @@ export class ModalSanctionComponent implements OnInit {
     dto = new SanctionRequestModel(
       this.f.nom.value,
       this.f. type_sanction.value,
-      this.f.lieu_recrutememnt.value,
       this.f.debut_sanction.value,
       this.f.fin_sanction.value,
       this.f.description.value,
       this.f.id.value,
+      this.f.id_Employer.value
 
       )
       console.log('avant', dto)
@@ -78,7 +83,7 @@ export class ModalSanctionComponent implements OnInit {
     this.isLoading = !this.isLoading;
     this.notif.success('Ajout avec sucsess ')
     if (this.notif ){
-      // this.router.navigate(['/listing-employer']).then(() => {});
+   
   }
     },err => {
       console.log(err)
@@ -87,5 +92,13 @@ export class ModalSanctionComponent implements OnInit {
       this.isLoginFailed = true;
   })
 
+}
+
+getEmployer(){
+  this.employerService.get(LIST_EMPLOYERS).then((response:any)=>{
+    this.employers = response.data;
+    console.log(this.employers)
+  }
+  )
 }
 }

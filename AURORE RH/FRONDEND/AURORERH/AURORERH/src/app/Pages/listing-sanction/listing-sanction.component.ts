@@ -27,6 +27,7 @@ export class ListingSanctionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSanction();
+
   }
 
   getSanction(){
@@ -68,12 +69,17 @@ export class ListingSanctionComponent implements OnInit {
     })
   }
   openDialog() {
-    const dialogRef = this.dialog.open(ModalSanctionComponent);
+    const dialogRef = this.dialog.open(ModalSanctionComponent, {
+     width: '500px',
+     height: 'auto'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
 
 
 }

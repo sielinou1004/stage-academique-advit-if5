@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,8 @@ import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.co
 import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanction.component';
 import { ModalSanctionComponent } from './Pages/modal-sanction/modal-sanction.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import * as fr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
 
 
 
@@ -64,9 +66,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     UserGuardService,
     authInterceptorProviders,
     AjoutEmployerComponent,
+    { provide: LOCALE_ID, useValue: 'fr-FR'}
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+   constructor() {
+  registerLocaleData(fr.default);
+} }
