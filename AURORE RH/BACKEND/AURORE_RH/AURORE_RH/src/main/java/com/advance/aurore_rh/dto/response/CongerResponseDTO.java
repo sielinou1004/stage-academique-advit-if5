@@ -16,17 +16,13 @@ import java.util.stream.Collectors;
 public class CongerResponseDTO {
     private Long id ;
 
-    private String nom;
-
-    private String prenom;
-
     private Date date_debut;
 
     private Date date_fin;
 
     private String type_conger;
 
-    private boolean validation;
+    private String validation;
 
     private String description;
 
@@ -39,8 +35,6 @@ public class CongerResponseDTO {
         public static CongerResponseDTO buildFromEntity(Conger entity){
             return  CongerResponseDTO.builder()
                     .id(entity.getId())
-                    .prenom(entity.getPrenom())
-                    .nom(entity.getNom())
                     .etablissement_conger(entity.getEtablissement_conger())
                     .date_debut(entity.getDate_debut())
                     .date_fin(entity.getDate_fin())

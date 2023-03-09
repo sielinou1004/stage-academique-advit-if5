@@ -17,8 +17,6 @@ public class SanctionResponseDTO {
 
     private Long id;
 
-    private String nom;
-
     private String type_sanction;
 
     private Date debut_sanction;
@@ -27,16 +25,18 @@ public class SanctionResponseDTO {
 
     private String description;
 
+    private String statut;
+
     private EmployerResponseDTO employerResponseDTO;
 
     public  static SanctionResponseDTO buildFromEntity(Sanction entity){
         return SanctionResponseDTO.builder()
                 .id(entity.getId_sanction())
-                .nom(entity.getNom())
                 .description(entity.getDescription())
                 .fin_sanction(entity.getFin_sanction())
                 .debut_sanction(entity.getDebut_sanction())
                 .type_sanction(entity.getType_sanction())
+                .statut(entity.getStatut())
                 .employerResponseDTO(EmployerResponseDTO.buildFromEntity(entity.getEmployer()))
                 .build();
     }

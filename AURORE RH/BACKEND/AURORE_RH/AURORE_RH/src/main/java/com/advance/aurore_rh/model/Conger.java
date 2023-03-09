@@ -38,7 +38,7 @@ public class Conger extends AuditEntity {
 
     private Date date_reprise;
 
-    private boolean validation;
+    private String validation;
 
     private Date etablissement_conger;
 
@@ -60,9 +60,9 @@ public class Conger extends AuditEntity {
         private Date date_fin;
         private String type_conger;
         private Date date_reprise;
-        private boolean validation;
+        private String validation;
         private Date etablissement_conger;
-        private String Description;
+        private String description;
         private TypeConger typeConger;
         private Employer employer;
 
@@ -108,7 +108,7 @@ public class Conger extends AuditEntity {
             return this;
         }
 
-        public CongerBuilder validation(boolean validation) {
+        public CongerBuilder validation(String validation) {
             this.validation = validation;
             return this;
         }
@@ -118,8 +118,8 @@ public class Conger extends AuditEntity {
             return this;
         }
 
-        public CongerBuilder Description(String Description) {
-            this.Description = Description;
+        public CongerBuilder description(String description) {
+            this.description = description;
             return this;
         }
 
@@ -144,7 +144,7 @@ public class Conger extends AuditEntity {
             conger.setDate_reprise(date_reprise);
             conger.setValidation(validation);
             conger.setEtablissement_conger(etablissement_conger);
-            conger.setDescription(Description);
+            conger.setDescription(description);
             conger.setTypeConger(typeConger);
             conger.setEmployer(employer);
             return conger;

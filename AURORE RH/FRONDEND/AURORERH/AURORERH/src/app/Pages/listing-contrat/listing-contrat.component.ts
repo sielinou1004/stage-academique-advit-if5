@@ -18,7 +18,6 @@ export class ListingContratComponent implements OnInit {
 
   public contrats: ContratResponseModel[] = [];
 
-
   constructor(
     private contratService: ContratService,
     private notif: NotificationService,

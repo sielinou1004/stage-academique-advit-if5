@@ -17,7 +17,6 @@ public class SanctionRequetDTO {
 
     private Long id;
 
-    private String nom;
 
     private String type_sanction;
 
@@ -27,15 +26,18 @@ public class SanctionRequetDTO {
 
     private String description;
 
+    private String statut;
+
     private Long id_Employer;
 
     public static Sanction buildFromDto(SanctionRequetDTO dto, Employer employer){
         return Sanction.SanctionBuilder.aSanction()
-                .nom(dto.getNom())
                 .fin_sanction(dto.getFin_sanction())
                 .debut_sanction(dto.getDebut_sanction())
                 .type_sanction(dto.getType_sanction())
-                .employer((Employer) employer)
+                .description(dto.getDescription())
+                .statut(dto.getStatut())
+                .employer(employer)
                 .build();
     }
 }

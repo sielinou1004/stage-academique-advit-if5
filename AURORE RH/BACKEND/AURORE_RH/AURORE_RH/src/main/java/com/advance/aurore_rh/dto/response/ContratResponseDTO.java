@@ -42,6 +42,8 @@ public class ContratResponseDTO {
 
     private String etat_civil;
 
+    private String statut;
+
     private EmployerResponseDTO employerResponseDTO;
 
     public static ContratResponseDTO buildFromEntity(Contrat entity){
@@ -59,6 +61,7 @@ public class ContratResponseDTO {
                 .Salaire_brut(entity.getSalaire_brut())
                 .debut_periode_essaie(entity.getDebut_periode_essaie())
                 .fin_periode_essaie(entity.getDate_embauche())
+                .statut(entity.getStatut())
                 .employerResponseDTO(EmployerResponseDTO.buildFromEntity(entity.getEmployer()))
                 .build();
     }

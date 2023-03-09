@@ -26,6 +26,8 @@ export class ContratRequestModel{
 
     public etat_civil: String,
 
+    public statut: String,
+
     public id_Employer: number,
 
 

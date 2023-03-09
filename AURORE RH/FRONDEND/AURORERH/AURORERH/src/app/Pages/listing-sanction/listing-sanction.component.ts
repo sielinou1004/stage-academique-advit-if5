@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DELETE_SANCTIONS, LIST_SANCTIONS } from 'src/app/shared/_elements/api_constante';
+import { DELETE_SANCTIONS, LIST_SANCTIONS, READBYID_SANCTIONS } from 'src/app/shared/_elements/api_constante';
 import { SanctionResponseModel } from 'src/app/shared/_models/responses/sanction-response.model';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import { SanctionService } from 'src/app/shared/_services/sanctionService';
@@ -68,10 +68,11 @@ export class ListingSanctionComponent implements OnInit {
         )}
     })
   }
-  openDialog() {
+  openDialog(data: any) {
     const dialogRef = this.dialog.open(ModalSanctionComponent, {
-     width: '500px',
-     height: 'auto'
+     width: '700px',
+     height: 'auto',
+     data:data
     });
 
     dialogRef.afterClosed().subscribe(result => {

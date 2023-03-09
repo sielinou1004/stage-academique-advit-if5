@@ -2,10 +2,8 @@ package com.advance.aurore_rh.model;
 
 
 import com.advance.aurore_rh.model.lnk.EmployerFormation;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -102,7 +100,9 @@ public class Employer extends AuditEntity {
     @OneToMany(mappedBy = "employer")
     private List<Conger> congers;
 
-    @OneToMany(mappedBy = "employer")
+    @OneToMany(targetEntity = Sanction.class, mappedBy = "employer")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ToString.Exclude
     private List<Sanction> sanctions;
 
     public static final class EmployerBuilder {

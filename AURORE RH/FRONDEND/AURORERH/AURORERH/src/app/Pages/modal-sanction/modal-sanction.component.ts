@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADD_SANCTIONS, LIST_EMPLOYERS } from 'src/app/shared/_elements/api_constante';
+import { ADD_SANCTIONS, LIST_EMPLOYERS, LIST_SANCTIONS, READBYID_SANCTIONS } from 'src/app/shared/_elements/api_constante';
 import { SanctionRequestModel } from 'src/app/shared/_models/requests/sanction-request.model';
 import { EmployerReponseModel } from 'src/app/shared/_models/responses/employer-response.model';
+import { SanctionResponseModel } from 'src/app/shared/_models/responses/sanction-response.model';
 import { EmployerService } from 'src/app/shared/_services/employerService';
 import { NotificationService } from 'src/app/shared/_services/notification.service';
 import { SanctionService } from 'src/app/shared/_services/sanctionService';
@@ -34,24 +35,38 @@ export class ModalSanctionComponent implements OnInit {
     private notif: NotificationService,
     private employerService: EmployerService,
     private dialogRef: MatDialogRef<ModalSanctionComponent>,
-    @Inject(MAT_DIALOG_DATA) data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.initFormSanction(null)
+    this.initFormSanction(null);
     this.getEmployer();
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    this.editSanction(this.id);
+    console.log('data', this.data)
+  }
+
+  editSanction(id:number){
+    this.sanctionService.get(`${READBYID_SANCTIONS}/${id}`)
+    .then((response:any)=>{
+      console.log('response', response)
+      this.initFormSanction(response.data)
+    });
   }
 
   public initFormSanction(data: any){
     this.formSanction =this.fb.group({
-    nom: [data ? data.nom :  ''],
-    type_sanction:[data ? data.type_sanction: ''],
-    debut_sanction:[data ? data.debut_sanction: ''],
-    fin_sanction:[data ? data.fin_periode_essaie: ''],
-    description:[data ? data.description: ''],
-    id_Employer:[data ? data.id_Employer: ''],
+    type_sanction:[data ? data.type_sanction: '', Validators.required],
+    debut_sanction:[data ? data.debut_sanction: '', Validators.required],
+    fin_sanction:[data ? data.fin_sanction: '', Validators.required],
+    description:[data ? data.description: '', Validators.required],
+    statut:[data ? data.statut: '', Validators.required],
+    id_Employer:[data ? data.id_Employer: '', Validators.required],
     id:[data ? data.id: null ],
-    })
+    });
   }
 
   get f() { return this.formSanction.controls; }
@@ -67,14 +82,13 @@ export class ModalSanctionComponent implements OnInit {
     console.log( 'fb',this.fb)
     let dto;
     dto = new SanctionRequestModel(
-      this.f.nom.value,
+      this.f.id.value,
       this.f. type_sanction.value,
       this.f.debut_sanction.value,
       this.f.fin_sanction.value,
       this.f.description.value,
-      this.f.id.value,
+      this.f.statut.value,
       this.f.id_Employer.value
-
       )
       console.log('avant', dto)
     this.sanctionService.post(ADD_SANCTIONS,dto )
@@ -83,7 +97,7 @@ export class ModalSanctionComponent implements OnInit {
     this.isLoading = !this.isLoading;
     this.notif.success('Ajout avec sucsess ')
     if (this.notif ){
-   
+      window.location.reload();
   }
     },err => {
       console.log(err)
@@ -91,7 +105,15 @@ export class ModalSanctionComponent implements OnInit {
       this.isLoading = !this.isLoading;
       this.isLoginFailed = true;
   })
+}
 
+public sanctions: SanctionResponseModel[] = [];
+getSanction(){
+  this.sanctionService.get(LIST_SANCTIONS).then((response:any)=>{
+    this.sanctions = response.data;
+    console.log(this.sanctions)
+  }
+  )
 }
 
 getEmployer(){
@@ -101,4 +123,5 @@ getEmployer(){
   }
   )
 }
+
 }

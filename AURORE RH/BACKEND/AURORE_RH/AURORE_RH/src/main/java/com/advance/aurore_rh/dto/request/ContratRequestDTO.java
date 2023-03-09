@@ -40,6 +40,8 @@ public class ContratRequestDTO {
 
     private String etat_civil;
 
+    private String statut;
+
     private Long id_Employer;
 
 
@@ -57,6 +59,7 @@ public class ContratRequestDTO {
                .Salaire_brut(dto.getSalaire_brut())
                .debut_periode_essaie(dto.getDebut_periode_essaie())
                .fin_periode_essaie(dto.getDate_embauche())
+               .statut(dto.getStatut())
                .employer(employer)
 
                .build();

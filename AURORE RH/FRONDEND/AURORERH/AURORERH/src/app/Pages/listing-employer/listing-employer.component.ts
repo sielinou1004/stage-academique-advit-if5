@@ -17,6 +17,7 @@ import { AffichEmployerComponent } from '../affich-employer/affich-employer.comp
 export class ListingEmployerComponent implements OnInit {
 
   public isLoading!: boolean;
+  public isLoginFailed = false;
   public employers: EmployerReponseModel[] = [];
   public id!: any;
 
@@ -25,7 +26,7 @@ export class ListingEmployerComponent implements OnInit {
     private notif: NotificationService,
     private router: Router,
     private route: ActivatedRoute,
- 
+
 
   ) { }
 
@@ -60,7 +61,16 @@ export class ListingEmployerComponent implements OnInit {
         this.employerService.delete(`${DELETE_EMPLOYER}/${item.id}`)
         .then((response:any)=>{
         console.log('response', response)
-        this.getEmployer();
+        this.notif.success('Ajout avec sucsess ')
+
+        if (this.notif ){
+          this.getEmployer();
+      }
+        },err => {
+          console.log(err)
+          this.notif.danger('Echec lors de la suppresion, il ya des instances en cours ');
+          this.isLoading = !this.isLoading;
+          this.isLoginFailed = true;
 
       })
       }

@@ -50,7 +50,6 @@ public class SanctionServiceEmpl implements SanctionServiceInter {
                 .map(s -> {
                     s.setDebut_sanction(sanctionRequetDTO.getDebut_sanction());
                     s.setFin_sanction(sanctionRequetDTO.getFin_sanction());
-                    s.setNom(sanctionRequetDTO.getNom());
                     s.setDescription(sanctionRequetDTO.getDescription());
                     s.setType_sanction(sanctionRequetDTO.getType_sanction());
                     return sanctionRepository.save(s);

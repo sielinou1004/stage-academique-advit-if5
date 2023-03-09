@@ -55,8 +55,6 @@ editContrat(id:number){
 
 public initFormContrat(data: any){
   this.formContrat = this.fb.group({
-    nom: [data ? data.nom :  ''],
-    prenom:[data ? data.prenom: ''],
     lieu_recrutememnt:[data ? data.lieu_recrutememnt: ''],
     date_embauche:[data ? data.date_embauche: ''],
     periode_essaie:[data ? data.periode_essaie: ''],
@@ -67,6 +65,7 @@ public initFormContrat(data: any){
     lieu_travail:[data ? data.lieu_travail: ''],
     salaire_brut:[data ? data.salaire_brut: ''],
     etat_civil:[data ? data.etat_civil: ''],
+    statut:[data ? data.statut: ''],
     id_Employer:[data ? data.id_Employer: ''],
     id:[data ? data.id: null ],
   })
@@ -97,6 +96,7 @@ get f() { return this.formContrat.controls; }
       this.f.lieu_travail.value,
       this.f.salaire_brut.value,
       this.f.etat_civil.value,
+      this.f.statut.value,
       this.f.id_Employer.value
       )
       console.log('avant', dto)

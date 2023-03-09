@@ -4,6 +4,7 @@ import com.advance.aurore_rh.dto.request.EmployerRequestDTO;
 import com.advance.aurore_rh.dto.response.EmployerResponseDTO;
 import com.advance.aurore_rh.model.Employer;
 import com.advance.aurore_rh.repository.EmployerRepository;
+import com.advance.aurore_rh.repository.SanctionRepository;
 import com.advance.aurore_rh.service.inter.EmployerServiceinter;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class EmployerServiceEmpl implements EmployerServiceinter {
 
     @Autowired
     EmployerRepository employerRepository;
+
+    @Autowired
+    SanctionRepository sanctionRepository;
 
     @Override
     public EmployerResponseDTO createEmpl(EmployerRequestDTO employerRequestDTO) {
@@ -61,17 +65,16 @@ public class EmployerServiceEmpl implements EmployerServiceinter {
                     e.setPoste(employerRequestDTO.getPoste());
                     e.setProfession(employerRequestDTO.getProfession());
                     e.setVille_exertion(employerRequestDTO.getVille_exertion());
-
                     return employerRepository.save(e);}
-
                 ).orElseThrow(()->new RuntimeException("Aucun employer trouvé"));
-
         return EmployerResponseDTO.buildFromEntity(employerToSave);
     }
 
     @Override
     public String deleteById(Long id) {
-        employerRepository.deleteById(id);
+       if ( sanctionRepository.existsByEmployerId(id) )
+           throw new RuntimeException("cette employer a une sanction");
+    employerRepository.deleteById(id);
         return  "Employer Supprimé";
     }
 }

@@ -42,7 +42,7 @@
                   <option value="CTT">CTT</option>
                   <option value="ALTERNANCE">ALTERNANCE</option>
                 </select>
-
+ <!-- <span *ngIf=" (submitted || formContrat.controls.type_contrat.touched) && formContrat.controls.type_contrat.errors "style="color:red">le nom l'employé est requis  </span> -->
               </div>
           </div>
 
@@ -108,33 +108,48 @@
                 <label  class="">
                   poste<span style="color: red;">*</span>
                 </label>
-                <input name="address" id="exampleAddress" placeholder="" type="text" class="form-control" formControlName="poste">
+                <input name="" id="exampleAddress" placeholder="" type="text" class="form-control" formControlName="poste">
                 <!-- <span *ngIf=" (submitted || formContrat.controls.poste.touched) && formContrat.controls.poste.errors "   style="color:red">  le poste est requis  </span> -->
 
               </div>
               </div>
             <div class="col-md-6">
                 <div class="position-relative form-group">
-                  <label for="examplePassword11" class="">
+                  <label class="exampleAddress">
                     lieu de travail<span style="color: red;">*</span>
                   </label>
-                  <input name="" id="" placeholder="" type="text" class="form-control" formControlName="lieu_travail">
+                  <input name="Address" id="address" placeholder="" type="text" class="form-control" formControlName="lieu_travail">
                   <!-- <span *ngIf=" (submitted || formContrat.controls.lieu_travail.touched) && formContrat.controls.lieu_travail.errors "   style="color:red"> le lieu de travail est requis  </span> -->
                 </div>
             </div>
         </div>
          <div class="form-row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="position-relative form-group">
                   <label for="" class="">
                     Salaire brut<span style="color: red;">*</span>
                   </label>
                   <input name="" id="" placeholder="" type="" class="form-control" formControlName="salaire_brut">
-                  <!-- <span *ngIf=" (submitted || formContrat.controls.Salaire_brut.touched) && formContrat.controls.Salaire_brut.errors " style="color:red">  le salaire est requis  </span> -->
+                  <!-- <span *ngIf=" (submitted || formContrat.controls.salaire_brut.touched) && formContrat.controls.salaire_brut.errors " style="color:red">  le salaire est requis  </span> -->
                 </div>
             </div>
 
+            <div class="col-md-6">
+              <div class="position-relative form-group">
+                <label for="" class="">
+                  Statut  <span style="color: red;">*</span>
+                </label>
+                <select name="select" placeholder=""  id="exampleSelect" type="text" class="" formControlName="statut" style="width: 100%; height: 2.4rem; border-color: rgb(218, 215, 215); border-radius: 5px;">
+                  <option value=""></option>
+                  <option  value="VALIDER">Valider</option>
+                  <option class="badge badge-warning" value="EN COURS">En Etude</option>
+                  <option value="SUSPENDU">Supendu</option>
+                </select>
+                <!-- <span *ngIf=" (submitted || formContrat.controls.statut.touched) && formContrat.controls.statut.errors " style="color:red">  le salaire est requis  </span> -->
+              </div>
+          </div>
         </div>
+        <br>
     <button style="height: 3rem; width: 15%; float: right;  " (click)=" addContrat()" class="btn btn-success mr-2 mb-2 block-page-btn-example-2">
     Enregistrement
     </button>

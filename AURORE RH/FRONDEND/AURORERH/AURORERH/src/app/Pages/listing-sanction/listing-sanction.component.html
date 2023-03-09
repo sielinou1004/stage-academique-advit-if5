@@ -11,7 +11,7 @@
   </div>
   <hr>
     <div class="col-sm-12">
-        <button mat-button (click)="openDialog()" style="float: right;  " class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
+        <button mat-button (click)="openDialog(null)" style="float: right;  " class="mb-2 mr-2 btn-icon btn btn-success">   <i class="fa-solid fa-user"></i>
           Ajouter </button>
           <br>  <br>
           <div >
@@ -44,10 +44,10 @@
       <td>{{sanction?.fin_sanction | date: 'dd-MM-yyy' }}</td>
       <td>{{sanction?.type_sanction}}</td>
       <td>
-        <button   routerLink="/affich-employer" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
+        <button  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary">
           <i class="fa-solid fa-eye"></i>
         </button>
-        <button  routerLinkActive="router-link-active"  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
+        <button (click)="openDialog(sanction)" routerLinkActive="router-link-active"  class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-warning">
           <i class="fa-solid fa-pen"></i>
         </button>
         <button (click)="deleteSanction(sanction)" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger">

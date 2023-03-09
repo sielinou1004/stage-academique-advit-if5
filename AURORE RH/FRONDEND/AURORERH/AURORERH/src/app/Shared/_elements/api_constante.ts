@@ -33,3 +33,12 @@ export const UPDATE_SANCTIONS = SANCTIONS + '/update';
 export const DELETE_SANCTIONS = SANCTIONS + '/delete';
 export const READ_SANCTIONS = SANCTIONS + '/read';
 export const READBYID_SANCTIONS = SANCTIONS + '/read';
+
+//les congers
+export const CONGERS = SERVEUR + 'conger';
+export const LIST_CONGERS = CONGERS + '/read';
+export const ADD_CONGERS = CONGERS + '/create';
+export const UPDATE_CONGERS = CONGERS + '/update';
+export const DELETE_CONGERS = CONGERS + '/delete';
+export const READ_CONGERS = CONGERS + '/read';
+export const READBYID_CONGERS = CONGERS + '/read';

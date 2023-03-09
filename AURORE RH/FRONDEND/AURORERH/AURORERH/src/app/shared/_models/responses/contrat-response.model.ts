@@ -28,6 +28,8 @@ export class ContratResponseModel{
 
     public etat_civil: String,
 
+    public statut: String,
+
     public employerResponseDTO: EmployerReponseModel,
   ){}
   }

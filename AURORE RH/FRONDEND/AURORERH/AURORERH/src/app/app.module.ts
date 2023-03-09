@@ -28,6 +28,7 @@ import { ModalSanctionComponent } from './Pages/modal-sanction/modal-sanction.co
 import {MatDialogModule} from '@angular/material/dialog';
 import * as fr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { ListingCongerComponent } from './Pages/listing-conger/listing-conger.component';
 
 
 
@@ -48,6 +49,7 @@ import { registerLocaleData } from '@angular/common';
     AffichContratComponent,
     ListingSanctionComponent,
     ModalSanctionComponent,
+    ListingCongerComponent,
   ],
   imports: [
     BrowserModule,

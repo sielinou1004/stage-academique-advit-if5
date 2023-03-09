@@ -14,10 +14,6 @@ import java.util.Date;
 public class CongerRequestDTO {
     private Long id ;
 
-    private String nom;
-
-    private String prenom;
-
     private Date date_debut;
 
     private Date date_fin;
@@ -28,7 +24,7 @@ public class CongerRequestDTO {
 
     private Date etablissement_conger;
 
-    private boolean validation;
+    private String validation;
 
     private String description;
 
@@ -36,10 +32,8 @@ public class CongerRequestDTO {
 
     public static Conger buildFromDto(CongerRequestDTO dto, Employer employer){
         return Conger.CongerBuilder.aConger()
-                .prenom(dto.getPrenom())
-                .nom(dto.getNom())
                 .etablissement_conger(dto.getEtablissement_conger())
-                .Description(dto.getDescription())
+                .description(dto.getDescription())
                 .date_debut(dto.getDate_debut())
                 .date_fin(dto.getDate_fin())
                 .date_reprise(dto.getDate_reprise())

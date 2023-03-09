@@ -45,6 +45,10 @@ public class Contrat extends AuditEntity {
     @Column(length = 50)
     private String poste;
 
+
+    @Column(length = 50)
+    private String statut;
+
     @Column(length = 50)
     private String lieu_travail;
 
@@ -73,6 +77,7 @@ public class Contrat extends AuditEntity {
         private Date fin_periode_essaie;
         private String type_contrat;
         private String poste;
+        private String statut;
         private String lieu_travail;
         private String Salaire_brut;
         private String etat_civil;
@@ -136,6 +141,11 @@ public class Contrat extends AuditEntity {
             return this;
         }
 
+        public ContratBuilder statut(String statut) {
+            this.statut = statut;
+            return this;
+        }
+
         public ContratBuilder lieu_travail(String lieu_travail) {
             this.lieu_travail = lieu_travail;
             return this;
@@ -173,6 +183,7 @@ public class Contrat extends AuditEntity {
             contrat.setFin_periode_essaie(fin_periode_essaie);
             contrat.setType_contrat(type_contrat);
             contrat.setPoste(poste);
+            contrat.setStatut(statut);
             contrat.setLieu_travail(lieu_travail);
             contrat.setSalaire_brut(Salaire_brut);
             contrat.setEtat_civil(etat_civil);

@@ -4,8 +4,6 @@ export class SanctionResponseModel{
   constructor(
     public id: number,
 
-    public nom: string,
-
     public  type_sanction: string,
 
     public  debut_sanction: Date,
@@ -13,6 +11,8 @@ export class SanctionResponseModel{
     public  fin_sanction: Date,
 
     public  description: string,
+
+    public statut: string,
 
     public  employerResponseDTO: EmployerReponseModel,
 

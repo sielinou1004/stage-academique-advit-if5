@@ -6,6 +6,7 @@ import { AffichContratComponent } from './Pages/affich-contrat/affich-contrat.co
 import { AffichEmployerComponent } from './Pages/affich-employer/affich-employer.component';
 import { AjoutContratComponent } from './Pages/ajout-contrat/ajout-contrat.component';
 import { AjoutEmployerComponent } from './Pages/ajout-employer/ajout-employer.component';
+import { ListingCongerComponent } from './Pages/listing-conger/listing-conger.component';
 import { ListingContratComponent } from './Pages/listing-contrat/listing-contrat.component';
 import { ListingEmployerComponent } from './Pages/listing-employer/listing-employer.component';
 import { ListingSanctionComponent } from './Pages/listing-sanction/listing-sanction.component';
@@ -29,6 +30,8 @@ const routes: Routes = [
     {path: 'ajout-contrat/:id', component:AjoutContratComponent},
 
     {path: 'listing-sanction', component:ListingSanctionComponent},
+
+    {path: 'listing-conger', component:ListingCongerComponent},
   ]
 },
 
